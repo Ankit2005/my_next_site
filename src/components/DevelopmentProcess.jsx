@@ -135,7 +135,7 @@ export default function DevelopmentProcess() {
             </Box>
           </Box>
         </Box>
-
+        {/* // test */}
         <Box>
           <Wrap ref={ref} spacing="20px" justify="center">
             {list.map((item, i) => (

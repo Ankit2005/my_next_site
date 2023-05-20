@@ -38,7 +38,7 @@ const Header = () => {
         mx="auto"
       >
         <Logo />
-        {/* <Text>{value}</Text> */}
+        <Text>{value}</Text>
         <Navbar />
       </Box>
     </Box>

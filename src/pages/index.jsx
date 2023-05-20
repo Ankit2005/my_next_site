@@ -92,7 +92,7 @@ const Home = () => {
                 as={motion.p}
                 {...textVariant("0.7")}
                 color="offWhiteText"
-                fontSize={{ base: 38, md: 56 }}
+                fontSize={{ base: 31, sm: 35, md: 48, lg: 44, xl: 56 }}
                 fontWeight={700}
               >
                 Research & Strategy
@@ -101,7 +101,7 @@ const Home = () => {
                 as={motion.p}
                 {...textVariant("0.9")}
                 className="out-line-text"
-                fontSize={{ base: 38, md: 56 }}
+                fontSize={{ base: 31, sm: 35, md: 48, lg: 32, xl: 56 }}
                 fontWeight={700}
               >
                 UI/UX Design
@@ -110,7 +110,7 @@ const Home = () => {
                 as={motion.p}
                 {...textVariant("1")}
                 color="offWhiteText"
-                fontSize={{ base: 38, md: 56 }}
+                fontSize={{ base: 31, sm: 35, md: 48, lg: 32, xl: 56 }}
                 fontWeight={700}
               >
                 Web Development
@@ -119,7 +119,7 @@ const Home = () => {
                 as={motion.p}
                 {...textVariant("1.1")}
                 className="out-line-text"
-                fontSize={{ base: 38, md: 56 }}
+                fontSize={{ base: 31, sm: 35, md: 48, lg: 32, xl: 56 }}
                 fontWeight={700}
               >
                 Mobile Development

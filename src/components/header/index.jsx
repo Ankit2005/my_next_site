@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Text, useBreakpointValue } from "@chakra-ui/react";
 
 import { MAX_WIDTH } from "config";
 import Logo from "../UI/logo";
@@ -7,6 +7,17 @@ import { useColorModeValue } from "@chakra-ui/react";
 
 const Header = () => {
   const bg = useColorModeValue("gray.200", "gray.300");
+
+  const value = useBreakpointValue({
+    base: "~base~",
+    sm: "~sm~",
+    md: "~md~",
+    lg: "~lg",
+    xl: "~xl~",
+  });
+
+  console.log("value ==> ", value);
+
   return (
     <Box
       as="header"
@@ -27,6 +38,7 @@ const Header = () => {
         mx="auto"
       >
         <Logo />
+        {/* <Text>{value}</Text> */}
         <Navbar />
       </Box>
     </Box>

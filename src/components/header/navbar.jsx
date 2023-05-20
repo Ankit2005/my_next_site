@@ -15,6 +15,7 @@ const Navbar = () => {
     setIsOpen(false);
   };
 
+  // Navbar menu
   const menu = [
     {
       name: "Home",

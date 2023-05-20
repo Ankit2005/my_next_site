@@ -4,7 +4,7 @@ import { FaViber } from "react-icons/fa";
 
 export default function FlotingBtn() {
   return (
-    <Box position="fixed" bottom={125} right={10} p="2" zIndex="10">
+    <Box position="fixed" bottom={25} right={6} zIndex="10">
       <Button
         as={motion.button}
         bg="primaryBlueBtn"
@@ -14,19 +14,19 @@ export default function FlotingBtn() {
         borderRadius={50}
         fontSize="40"
         initial={{
-          width: "50px",
-          height: "50px",
+          width: "40px",
+          height: "40px",
           borderRadius: "50%",
           opacity: 0,
         }}
         animate={{
-          width: "80px",
-          height: "80px",
+          width: "60px",
+          height: "60px",
           borderRadius: "50%",
           opacity: 1,
           transition: {
             type: "spring",
-            duration: "1",
+            duration: "1.5",
             iterations: Infinity,
           },
         }}

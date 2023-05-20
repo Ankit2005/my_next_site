@@ -1,5 +1,6 @@
 import {
   Box,
+  Center,
   chakra,
   Container,
   Link,
@@ -7,6 +8,8 @@ import {
   Text,
   useColorModeValue,
   VisuallyHidden,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
 import { MAX_WIDTH } from "config";
 import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
@@ -54,25 +57,37 @@ export default function Footer() {
         justify={"center"}
         align={"center"}
       >
-        <Stack
-          // borderTopWidth={1}
+        <Wrap
           p="5"
-          border="1px"
           borderRadius="8"
-          borderWidth={1}
-          w={{ base: "60%" }}
+          borderWidth={{ base: 0, md: 1 }}
+          w={{ base: "100%", md: "60%" }}
           borderStyle={"dashed"}
           borderColor={useColorModeValue("gray.200", "primaryBorder")}
-          direction={"row"}
-          justifyContent="space-around"
-          spacing={6}
+          spacing="40px"
+          justify="center"
         >
-          <Link href={"#"}>Home</Link>
-          <Link href={"#"}>Service</Link>
-          <Link href={"#"}>History</Link>
-          <Link href={"#"}>About</Link>
-          <Link href={"#"}>Contact</Link>
-        </Stack>
+          <WrapItem>
+            <Center w="60px">
+              <Link href={"#"}>Home</Link>
+            </Center>
+          </WrapItem>
+          <WrapItem>
+            <Center w="60px">
+              <Link href={"#"}>Service</Link>
+            </Center>
+          </WrapItem>
+          <WrapItem>
+            <Center w="60px">
+              <Link href={"#"}>About</Link>
+            </Center>
+          </WrapItem>
+          <WrapItem>
+            <Center w="60px">
+              <Link href={"#"}>Contact</Link>
+            </Center>
+          </WrapItem>
+        </Wrap>
       </Container>
 
       <Box>

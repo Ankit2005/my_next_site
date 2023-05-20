@@ -73,11 +73,9 @@ const Home = () => {
           </Box>
 
           <Box>
-            {/* <Heading as="h1">{"item.title"}</Heading> */}
             <Box
               as={motion.div}
               onScroll={() => {
-                // This will animate the heading when the user scrolls
                 motion.div.play();
               }}
               {...textVariant("0.5")}
@@ -94,7 +92,7 @@ const Home = () => {
                 as={motion.p}
                 {...textVariant("0.7")}
                 color="offWhiteText"
-                fontSize="56"
+                fontSize={{ base: 38, md: 56 }}
                 fontWeight={700}
               >
                 Research & Strategy
@@ -103,7 +101,7 @@ const Home = () => {
                 as={motion.p}
                 {...textVariant("0.9")}
                 className="out-line-text"
-                fontSize="56"
+                fontSize={{ base: 38, md: 56 }}
                 fontWeight={700}
               >
                 UI/UX Design
@@ -112,7 +110,7 @@ const Home = () => {
                 as={motion.p}
                 {...textVariant("1")}
                 color="offWhiteText"
-                fontSize="56"
+                fontSize={{ base: 38, md: 56 }}
                 fontWeight={700}
               >
                 Web Development
@@ -121,7 +119,7 @@ const Home = () => {
                 as={motion.p}
                 {...textVariant("1.1")}
                 className="out-line-text"
-                fontSize="56"
+                fontSize={{ base: 38, md: 56 }}
                 fontWeight={700}
               >
                 Mobile Development

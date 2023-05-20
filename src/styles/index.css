@@ -54,3 +54,23 @@ blockquote p:last-of-type:after {
   -webkit-text-stroke-color: #fff;
   font-size: 100px;
 }
+
+/* .gd {
+  background: rgb(14, 19, 48);
+  background: linear-gradient(
+    315deg,
+    rgba(14, 19, 48, 1) 73%,
+    rgba(9, 18, 72, 1) 100%,
+    rgba(27, 35, 77, 1) 100%
+  );
+} */
+
+.gd {
+  background: rgb(9, 18, 72);
+  background: linear-gradient(
+    315deg,
+    rgb(9, 16, 55) 19%,
+    rgba(14, 19, 48, 1) 67%,
+    rgb(23, 31, 68) 100%
+  );
+}

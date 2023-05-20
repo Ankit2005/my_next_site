@@ -16,7 +16,7 @@ const Header = () => {
     xl: "~xl~",
   });
 
-  console.log("value ==> ", value);
+  // console.log("value ==> ", value);
 
   return (
     <Box

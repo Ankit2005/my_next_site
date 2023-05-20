@@ -8,6 +8,9 @@ export default function FlotingBtn() {
       <Button
         as={motion.button}
         bg="primaryBlueBtn"
+        whileHover={{ scale: 1.2 }}
+        onHoverStart={(e) => {}}
+        onHoverEnd={(e) => {}}
         //  width={58}
         // height="58"
         color="white"

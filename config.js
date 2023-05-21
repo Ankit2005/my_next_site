@@ -1,8 +1,7 @@
 export const seo = {
-  title: "Portfolio Boilerplate",
-  description:
-    "A Next.js boilerplate for building your portfolio as quick as possible",
-  canonical: "https://portfolio-boilerplate-nextjs.vercel.app/",
+  title: "Next js  project",
+  description: "A Next.js project ",
+  canonical: "https://my-next-site-beige.vercel.app/",
 };
 
 export const data = [

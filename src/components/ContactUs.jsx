@@ -50,7 +50,12 @@ export default function ContactUs() {
             <Wrap spacing={{ base: 20, sm: 3, md: 5, lg: 20 }}>
               <WrapItem>
                 <Box>
-                  <Heading>Get in Touch</Heading>
+                  <Heading>
+                    Get in{" "}
+                    <Text color="secondary" as="span">
+                      Touch
+                    </Text>{" "}
+                  </Heading>
                   <Text mt={{ sm: 3, md: 3, lg: 5 }} color="gray.500">
                     Fill up the form below to contact
                   </Text>
@@ -87,7 +92,7 @@ export default function ContactUs() {
                         _hover={{ border: "2px solid #1C6FEB" }}
                         leftIcon={<MdLocationOn color="#1970F1" size="20px" />}
                       >
-                        Karnavati, India
+                        Ahmedabad, IN
                       </Button>
                     </VStack>
                   </Box>
@@ -102,7 +107,7 @@ export default function ContactUs() {
                       variant="ghost"
                       size="lg"
                       isRound={true}
-                      _hover={{ bg: "#0D74FF" }}
+                      _hover={{ bg: "secondary" }}
                       icon={<MdFacebook size="28px" />}
                     />
                     <IconButton
@@ -110,7 +115,7 @@ export default function ContactUs() {
                       variant="ghost"
                       size="lg"
                       isRound={true}
-                      _hover={{ bg: "#0D74FF" }}
+                      _hover={{ bg: "secondary" }}
                       icon={<BsGithub size="28px" />}
                     />
                     <IconButton
@@ -118,7 +123,7 @@ export default function ContactUs() {
                       variant="ghost"
                       size="lg"
                       isRound={true}
-                      _hover={{ bg: "#0D74FF" }}
+                      _hover={{ bg: "secondary" }}
                       icon={<BsDiscord size="28px" />}
                     />
                   </HStack>

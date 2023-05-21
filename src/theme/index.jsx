@@ -18,6 +18,7 @@ const colors = {
   black: "#000",
   white: "#fff",
   bgPrimary: "#0E1330",
+  secondary: "#7214FF",
   bgGradientPrimary: "linear(to-r, #282D45, #0E1330)",
   primaryBlueBtn: "#7214FF",
   primaryBorder: "#7214FF",

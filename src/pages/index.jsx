@@ -16,6 +16,7 @@ import Hero from "@/components/Hero";
 import Work from "@/components/Work";
 import DevelopmentProcess from "@/components/DevelopmentProcess";
 import ContactUs from "@/components/ContactUs";
+import Technologies from "@/components/Technologies";
 
 const Home = () => {
   const color = useColorModeValue("red", "blue");
@@ -48,6 +49,7 @@ const Home = () => {
       <Work />
       <DevelopmentProcess />
       <ContactUs />
+      <Technologies />
     </>
   );
 };

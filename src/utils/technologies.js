@@ -17,6 +17,10 @@ const technologies = {
       img: "/img/flutter.svg",
     },
     {
+      technologie: "Ionic",
+      img: "/img/ionic.svg",
+    },
+    {
       technologie: "Swifts",
       img: "/img/swift.svg",
     },
@@ -33,7 +37,7 @@ const technologies = {
 
     {
       technologie: "Titanium",
-      img: "/img/t  itanium.svg",
+      img: "/img/titanium.svg",
     },
   ],
 };

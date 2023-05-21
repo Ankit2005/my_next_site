@@ -48,8 +48,8 @@ const Home = () => {
       <Hero />
       <Work />
       <DevelopmentProcess />
-      <ContactUs />
       <Technologies />
+      <ContactUs />
     </>
   );
 };

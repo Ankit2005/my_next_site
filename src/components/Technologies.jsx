@@ -70,25 +70,25 @@ export default function Technologies() {
   ];
 
   const [ref, inView] = useInView({
-    triggerOnce: false, // Only trigger the animation once
+    triggerOnce: true, // Only trigger the animation once
   });
 
-  const [x, setX] = useState(-100);
+  //const [x, setX] = useState(-100);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      console.log("dddddddddd", window.scrollY);
-      if (window.scrollY >= 1730) {
-        setX(-100);
-      } else {
-        setX(0);
-      }
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     console.log("dddddddddd", window.scrollY);
+  //     if (window.scrollY >= 1730) {
+  //       setX(-100);
+  //     } else {
+  //       setX(0);
+  //     }
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   return (
     <Box
@@ -127,38 +127,84 @@ export default function Technologies() {
         </Box>
 
         <Box py="10">
-          <Tabs position="relative" variant="unstyled">
-            <TabList display={"flex"} justifyContent="center">
-              <Tab _focus={{}}>Mobile</Tab>
-              <Tab _focus={{}}>Two</Tab>
-              <Tab _focus={{}}>Three</Tab>
+          <Tabs variant="unstyled">
+            <TabList display={"flex"} gap="3" justifyContent="center">
+              {[
+                "Mobile",
+                "Front End",
+                // "Database",
+                // "Backend",
+                // "Database",
+                "CMS",
+                // "Infra and DevOps",
+              ].map((tab, i) => (
+                <Tab
+                  key={i}
+                  _selected={{ borderBottom: "1px", color: "white" }}
+                  color="gray.600"
+                  _focus={{}}
+                >
+                  {tab}
+                </Tab>
+              ))}
             </TabList>
-            <TabIndicator
-              //mt="-1.5px"
-              height="1px"
-              bg="white"
-              borderRadius="1px"
-            />
-            <TabPanels py="10">
-              <TabPanel>
-                <Wrap justifyContent="space-between">
+
+            <TabPanels display={"flex"} justifyContent="center" py="10">
+              <TabPanel width={{ base: "90%" }}>
+                <Wrap ref={ref} justify="center" spacing={0}>
                   {technologies.mobile.map((tech, i) => {
                     return (
-                      <Tech
-                        title={tech.technologie}
-                        icon={tech.img}
-                        index={i}
-                      />
+                      <WrapItem
+                        p="5"
+                        border="1px"
+                        borderColor="#47434333"
+                        key={i}
+                        // as={motion.div}
+                        as={motion.div}
+                        initial="hidden"
+                        whileInView="visible"
+                        // as={motion.div}
+                        // whileInView={{
+                        //   scale: inView ? 1.1 : 1,
+                        // }}
+                        //  viewport={{ once: true }}
+                        transition={{ delay: i * 0.8, duration: 1.5 }}
+                        variants={{
+                          visible: {
+                            opacity: inView ? 1 : 0,
+                            scale: inView ? 1 : 0,
+                            //  x: 0,
+                          },
+                          hidden: {
+                            opacity: inView ? 1 : 0,
+                            scale: inView ? 1 : 0,
+                            // x: 100,
+                          },
+                        }}
+                        // {...textSlideVariant(0.2, "right", inView)}
+                      >
+                        <Center>
+                          <Box textAlign="center" w="140px">
+                            <Box
+                              as={motion.div}
+                              whileHover={{
+                                scale: 1.6,
+                              }}
+                              display="flex"
+                              justifyContent="center"
+                            >
+                              <Image src={tech.img} />
+                            </Box>
+                            <Box my="4">{tech.technologie}</Box>
+                          </Box>
+                        </Center>
+                      </WrapItem>
                     );
                   })}
                 </Wrap>
               </TabPanel>
-              <TabPanel>
-                <p>two!</p>
-              </TabPanel>
-              <TabPanel>
-                <p>three!</p>
-              </TabPanel>
+              <TabPanel></TabPanel>
+              <TabPanel></TabPanel>
             </TabPanels>
           </Tabs>
         </Box>
@@ -166,18 +212,3 @@ export default function Technologies() {
     </Box>
   );
 }
-
-const Tech = ({ title, icon, i }) => {
-  return (
-    <WrapItem key={i}>
-      <Center>
-        <Box textAlign="center" p="2" w="190px">
-          <Box display="flex" justifyContent="center">
-            <Image src={icon} />
-          </Box>
-          <Box my="4">{title}</Box>
-        </Box>
-      </Center>
-    </WrapItem>
-  );
-};

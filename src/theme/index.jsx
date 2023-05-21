@@ -24,8 +24,10 @@ const colors = {
   primaryBorder: "#7214FF",
   neutralGray: "#8F9BB7",
   offWhiteText: "#FAFAFC",
+
   gray: {
     50: "#f7fafc",
+    600: "#909090",
     900: "#171923",
   },
   // ...

@@ -32,6 +32,7 @@ import {
   textSlideVariant,
   cardVariant,
 } from "src/utils/motion";
+import CardTil from "./CardTil";
 
 export default function Work() {
   const cards = [
@@ -131,7 +132,7 @@ export default function Work() {
         </Box>
 
         <Box py="20">
-          <Wrap p="4" ref={ref} spacing="20px" justify="center">
+          <Wrap p="4" ref={ref} spacing="26px" justify="center">
             {cards.map((item, i) => (
               <WrapItem
                 key={i}
@@ -140,6 +141,7 @@ export default function Work() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.5, duration: 1.2 }}
+                width={{ base: "100%", md: "40%", lg: "30%" }}
                 variants={{
                   visible: { opacity: inView ? 1 : 0, scale: inView ? 1 : 0 },
                   hidden: { opacity: inView ? 1 : 0, scale: inView ? 1 : 0 },
@@ -147,45 +149,15 @@ export default function Work() {
                 // {...cardVariant(i * 0.4, inView)}
               >
                 <Center py={2}>
-                  <Box
-                    overscroll={"auto"}
-                    maxW={"445px"}
-                    border="1px"
-                    borderColor="primaryBorder"
-                    //w={"full"}
-                    bg={useColorModeValue("white", "bgGradientPrimary")}
-                    // bgGradient="linear(to-l, #7928CA, #FF0080)"
-                    boxShadow={"2xl"}
-                    rounded={"md"}
-                    p={2}
-                    overflow={"hidden"}
-                  >
-                    <Box as={motion.div} initial="hidden" whileInView="show">
-                      <Image borderRadius={10} src={item.img} layout={"fill"} />
-                    </Box>
-
-                    <Stack
-                      mt={6}
-                      direction={"row"}
-                      spacing={2}
-                      align={"center"}
-                    >
-                      <Stack
-                        textAlign="left"
-                        direction={"column"}
-                        spacing={3}
-                        fontSize={"sm"}
-                      >
-                        <Text {...textVariant("0.7")} fontWeight={600}>
-                          Virtual Gym
-                        </Text>
-                        <Text color={"gray.500"}>
-                          We designed Virtual Gym to make it more convenient to
-                          ensure that users only focus on fitness.
-                        </Text>
-                      </Stack>
-                    </Stack>
-                  </Box>
+                  <CardTil
+                    description={item.desc}
+                    imageSrc={item.img}
+                    title={item.title}
+                    name={item.title}
+                    image={item.img}
+                    source_code_link="https://test.com/"
+                    index={i}
+                  />
                 </Center>
               </WrapItem>
             ))}

@@ -84,3 +84,24 @@ blockquote p:last-of-type:after {
     rgba(92, 18, 18, 0.471) 100%
   );
 }
+
+/* --------------------------- */
+
+.container {
+  position: relative;
+  overflow: hidden;
+}
+
+.moving-image {
+  position: absolute;
+  animation: moveImage 10s linear infinite;
+}
+
+@keyframes moveImage {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

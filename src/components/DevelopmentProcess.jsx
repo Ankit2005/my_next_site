@@ -142,25 +142,25 @@ export default function DevelopmentProcess() {
               <WrapItem
                 key={i}
                 as={motion.div}
-                initial={{
-                  y: 70,
-                  opacity: 0,
-                }}
+                initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ type: "spring", delay: i * 0.6, duration: 2.5 }}
-                animate={{
-                  y: 0,
-                  opacity: 1,
-                  transition: {
-                    type: "spring",
-                    duration: 1.5,
-                    delay: i * 0.5,
-                  },
-                }}
+                // as={motion.div}
+                // whileInView={{
+                //   scale: inView ? 1.1 : 1,
+                // }}
+                //  viewport={{ once: true }}
+                transition={{ delay: i * 0.8, duration: 1.5 }}
                 variants={{
-                  visible: { opacity: inView ? 1 : 0, scale: inView ? 1 : 0 },
-                  hidden: { opacity: inView ? 1 : 0, scale: inView ? 1 : 0 },
+                  visible: {
+                    opacity: inView ? 1 : 0,
+                    scale: inView ? 1 : 0,
+                    //  x: 0,
+                  },
+                  hidden: {
+                    opacity: inView ? 1 : 0,
+                    scale: inView ? 1 : 0,
+                    // x: 100,
+                  },
                 }}
                 width={{
                   base: "100%",
@@ -179,7 +179,10 @@ export default function DevelopmentProcess() {
                     // border="1px"
                     // borderColor="primaryBorder"
                     w={"full"}
-                    bg={useColorModeValue("white", "bgGradientPrimary")}
+                    bg={useColorModeValue(
+                      "bgGradientPrimary",
+                      "bgGradientPrimary"
+                    )}
                     // bgGradient="linear(to-l, #7928CA, #FF0080)"
                     // boxShadow={"2xl"}
                     rounded={"md"}
@@ -225,6 +228,7 @@ export default function DevelopmentProcess() {
                           fontSize={36}
                           {...textVariant("0.7")}
                           fontWeight={600}
+                          color="white"
                         >
                           {item.title}
                         </Text>

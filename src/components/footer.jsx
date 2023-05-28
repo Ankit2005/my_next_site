@@ -44,10 +44,10 @@ export default function Footer() {
     <Box
       borderTopWidth={1}
       borderStyle={"solid"}
-      borderColor={useColorModeValue("gray.200", "gray.700")}
-      // bg={useColorModeValue("gray.50", "gray.900")}
-      bg={useColorModeValue("gray.50", "bgPrimary")}
-      color={useColorModeValue("gray.700", "gray.200")}
+      borderColor={useColorModeValue("gray.700", "gray.700")}
+      // bg={useColorModeValue("bgPrimary", "gray.900")}
+      bg={useColorModeValue("bgPrimary", "bgPrimary")}
+      color={useColorModeValue("gray.200", "gray.200")}
     >
       <Container
         as={Stack}
@@ -63,7 +63,7 @@ export default function Footer() {
           borderWidth={{ base: 0, md: 1 }}
           w={{ base: "100%", md: "60%" }}
           borderStyle={"dashed"}
-          borderColor={useColorModeValue("gray.200", "primaryBorder")}
+          borderColor={useColorModeValue("primaryBorder", "primaryBorder")}
           spacing="40px"
           justify="center"
         >

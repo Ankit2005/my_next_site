@@ -9,7 +9,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const bg = useColorModeValue("gray.200", "gray.300");
-  const color = useColorModeValue("red", "white");
+  const color = useColorModeValue("white", "white");
 
   const closeMenu = () => {
     setIsOpen(false);
@@ -27,7 +27,7 @@ const Navbar = () => {
     },
     {
       name: "History",
-      link: "/history",
+      link: "/History",
     },
     {
       name: "About us",

@@ -7,46 +7,90 @@ import {
 } from "@chakra-ui/react";
 import { NextSeo } from "next-seo";
 import NextImage from "next/image";
-import { Man } from "../assets/img";
+import { Block, Flawer, Man, Plant } from "../assets/img";
 
 import { seo, data } from "config";
 import { motion } from "framer-motion";
 import { textVariant } from "src/utils/motion";
+import AnimatedObject from "./AnimatedObject";
+import ThreeText from "./ThreeText";
 
 export default function Hero() {
   return (
     <Box
       as="section"
-      d="flex"
+      //  d="flex"
       alignItems="center"
       justifyContent={{ base: "space-between" }}
       flexDir="column"
       textAlign={{ base: "center", lg: "left" }}
-      py={{ base: 20, md: 24 }}
-      px={[4, 6, 10, 14, 20]}
+      mb="50px"
+      //  py={{ base: 20, md: 24 }}
+      //px={[4, 6, 10, 14, 20]}
     >
       <Box
-        d={{ lg: "flex" }}
+        // d={{ lg: "flex" }}
         justifyContent={{ lg: "center" }}
         alignItems={{ lg: "center" }}
         flexDir={{ lg: "row-reverse" }}
         textAlign="center"
+        // border="1px"
+        // borderColor={"white"}
         w="100%"
       >
         <Box
           as={motion.div}
+          position="relative"
           {...textVariant("0.5")}
           pl={{ lg: 1 == 1 && "10" }}
           pr={{ lg: 1 == 0 && "10" }}
+          //width="70%"
+          height={"70vh"}
+          // border={"1px"}
+          // borderColor="white"
         >
-          <NextImage
+          <Box position="absolute" top="2">
+            <AnimatedObject
+              img={Flawer}
+              animate={{
+                // scale: [1, 0, 1, 0, 1],
+                //  scale: [0.8, 1, 1, 1, 1],
+                // rotate: [0, 0, 270, 270, 0],
+                y: ["0%", "20%", "0%"],
+                rotate: [-1, 0, -10, 0],
+                // borderRadius: ["20%", "20%", "50%", "50%", "20%"],
+              }}
+            />
+          </Box>
+          {/* <NextImage
             src={Man}
             width="600"
             height="600"
             alt={"man"}
             placeholder="blur"
             blurDataURL="L8LE.{~60000_3V@ITx^00t:V?-P"
-          />
+          /> */}
+          <ThreeText />
+          {/* <Box position="absolute" top="42" right={0}>
+            <AnimatedObject
+              img={Block}
+              animate={{
+                y: ["0%", "-10%", "0%"],
+                x: ["0%", "-10%", "0%"],
+                rotate: [-1, 0, -10, 0],
+              }}
+            />
+          </Box>
+          <Box position="absolute" bottom={18} right={0}>
+            <AnimatedObject
+              img={Plant}
+              animate={{
+                scale: [2, 2],
+                //  rotate: [0, 50, 270, 270, 0],
+                y: ["0%", "-10%", "0%"],
+              }}
+            />
+          </Box> */}
         </Box>
 
         <Box>
@@ -69,7 +113,7 @@ export default function Hero() {
               as={motion.p}
               {...textVariant("0.7")}
               color="offWhiteText"
-              fontSize={{ base: 27, sm: 35, md: 48, lg: 44, xl: 56 }}
+              fontSize={{ base: 27, sm: 35, md: 48, lg: 30, xl: 56 }}
               fontWeight={700}
             >
               Research & Strategy

@@ -10,16 +10,19 @@ import "@fontsource/poppins/latin-500.css";
 import "@fontsource/poppins/latin-600.css";
 import "@fontsource/poppins/latin-700.css";
 import "@/styles/index.css";
+import { StrictMode } from "react";
 
 const MyApp = ({ Component, pageProps }) => (
   <>
-    <DefaultSeo {...SEO} />
+    <StrictMode>
+      <DefaultSeo {...SEO} />
 
-    <ChakraProvider theme={theme}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ChakraProvider>
+      <ChakraProvider theme={theme}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ChakraProvider>
+    </StrictMode>
   </>
 );
 

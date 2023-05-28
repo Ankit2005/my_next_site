@@ -25,8 +25,13 @@ import {
   MdOutlineEmail,
 } from "react-icons/md";
 import { BsGithub, BsDiscord, BsPerson } from "react-icons/bs";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 export default function ContactUs() {
+  const [ref, inView] = useInView({
+    triggerOnce: true, // Only trigger the animation once
+  });
   return (
     <Container
       className="gd"
@@ -47,9 +52,31 @@ export default function ContactUs() {
           mt="20"
         >
           <Box p={4}>
-            <Wrap spacing={{ base: 20, sm: 3, md: 5, lg: 20 }}>
+            <Wrap ref={ref} spacing={{ base: 20, sm: 3, md: 5, lg: 20 }}>
               <WrapItem>
-                <Box>
+                <Box
+                  as={motion.div}
+                  initial="hidden"
+                  whileInView="visible"
+                  // as={motion.div}
+                  // whileInView={{
+                  //   scale: inView ? 1.1 : 1,
+                  // }}
+                  //  viewport={{ once: true }}
+                  transition={{ delay: 1 * 0.8, duration: 1.5 }}
+                  variants={{
+                    visible: {
+                      opacity: inView ? 1 : 0,
+                      scale: inView ? 1 : 0,
+                      //  x: 0,
+                    },
+                    hidden: {
+                      opacity: inView ? 1 : 0,
+                      scale: inView ? 1 : 0,
+                      // x: 100,
+                    },
+                  }}
+                >
                   <Heading>
                     Get in{" "}
                     <Text color="secondary" as="span">
@@ -59,7 +86,30 @@ export default function ContactUs() {
                   <Text mt={{ sm: 3, md: 3, lg: 5 }} color="gray.500">
                     Fill up the form below to contact
                   </Text>
-                  <Box py={{ base: 5, sm: 5, md: 8, lg: 10 }}>
+                  <Box
+                    as={motion.div}
+                    initial="hidden"
+                    whileInView="visible"
+                    // as={motion.div}
+                    // whileInView={{
+                    //   scale: inView ? 1.1 : 1,
+                    // }}
+                    //  viewport={{ once: true }}
+                    transition={{ delay: 1 * 0.8, duration: 1.5 }}
+                    variants={{
+                      visible: {
+                        opacity: inView ? 1 : 0,
+                        scale: inView ? 1 : 0,
+                        //  x: 0,
+                      },
+                      hidden: {
+                        opacity: inView ? 1 : 0,
+                        scale: inView ? 1 : 0,
+                        // x: 100,
+                      },
+                    }}
+                    py={{ base: 5, sm: 5, md: 8, lg: 10 }}
+                  >
                     <VStack pl={0} spacing={3} alignItems="flex-start">
                       <Button
                         size="md"

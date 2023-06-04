@@ -13,6 +13,9 @@ import {
 } from "@chakra-ui/react";
 import { MAX_WIDTH } from "config";
 import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { menu } from "src/utils/constant";
+import { useRouter } from "next/router";
+import NextLink from "next/link";
 
 const SocialButton = ({ children, label, href }) => {
   return (
@@ -39,6 +42,7 @@ const SocialButton = ({ children, label, href }) => {
 };
 
 export default function Footer() {
+  const router = useRouter();
   const currentYear = new Date().getFullYear();
   return (
     <Box
@@ -67,26 +71,19 @@ export default function Footer() {
           spacing="40px"
           justify="center"
         >
-          <WrapItem>
-            <Center w="60px">
-              <Link href={"#"}>Home</Link>
-            </Center>
-          </WrapItem>
-          <WrapItem>
-            <Center w="60px">
-              <Link href={"#"}>Service</Link>
-            </Center>
-          </WrapItem>
-          <WrapItem>
-            <Center w="60px">
-              <Link href={"#"}>About</Link>
-            </Center>
-          </WrapItem>
-          <WrapItem>
-            <Center w="60px">
-              <Link href={"#"}>Contact</Link>
-            </Center>
-          </WrapItem>
+          {menu.map((menu, i) => (
+            <WrapItem>
+              <NextLink href={menu.link}>
+                <Text
+                  color={router.pathname === menu.link ? "secondary" : "white"}
+                  cursor="pointer"
+                  // onClick={closeMenu}
+                >
+                  {menu.name}
+                </Text>
+              </NextLink>
+            </WrapItem>
+          ))}
         </Wrap>
       </Container>
 

@@ -20,7 +20,7 @@ const ChakraBox = chakra(motion.div, {
 
 export default function FlotingBtn() {
   return (
-    <Box position="fixed" bottom={25} right={6} zIndex="10">
+    <Box position="fixed" bottom={0} right={0} zIndex="10">
       <Container
       //  h="100vh"
       // display="flex"

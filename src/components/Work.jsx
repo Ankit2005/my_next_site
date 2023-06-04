@@ -18,11 +18,14 @@ import {
   useColorModeValue,
   Wrap,
   WrapItem,
+  HStack,
+  Tag,
 } from "@chakra-ui/react";
 
 // import NextImage from "next/image";
 
 import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";

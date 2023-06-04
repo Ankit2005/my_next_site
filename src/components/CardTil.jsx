@@ -13,7 +13,7 @@ const CardTil = ({
   index,
 }) => {
   const fadeInVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 35 },
     visible: { opacity: 1, y: 0 },
   };
 
@@ -26,22 +26,24 @@ const CardTil = ({
     >
       <Tilt
         options={{
-          max: 70,
+          max: 30,
           scale: 1,
-          speed: 300,
+          speed: 32,
         }}
         className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
       >
-        <Box position="relative" w="full" h="400px">
+        <Box borderRadius="lg" overflow="hidden">
           <Image
+            transform="scale(1.0)"
             src={image}
             alt="project_image"
-            w="full"
-            h="full"
-            objectFit="cover"
-            rounded="2xl"
+            objectFit="contain"
+            width="100%"
+            transition="0.3s ease-in-out"
+            _hover={{
+              transform: "scale(1.05)",
+            }}
           />
-
           <Flex
             justify="end"
             m="3"

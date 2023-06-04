@@ -1,11 +1,14 @@
 import { useState } from "react";
-import { Box, Button, chakra, useColorModeValue } from "@chakra-ui/react";
+import { Box, Button, chakra, Text, useColorModeValue } from "@chakra-ui/react";
 import NextLink from "next/link";
+import { useRouter } from "next/router";
 
 import HamburgerMenu from "../UI/hamburgerMenu";
 import ColorModeToggle from "../UI/colorModeToggle";
+import { menu } from "src/utils/constant";
 
 const Navbar = () => {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
 
   const bg = useColorModeValue("gray.200", "gray.300");
@@ -16,24 +19,6 @@ const Navbar = () => {
   };
 
   // Navbar menu
-  const menu = [
-    {
-      name: "Home",
-      link: "/",
-    },
-    {
-      name: "Service",
-      link: "/service",
-    },
-    {
-      name: "History",
-      link: "/History",
-    },
-    {
-      name: "About us",
-      link: "/about",
-    },
-  ];
 
   return (
     <>
@@ -73,7 +58,13 @@ const Navbar = () => {
               fontWeight="700"
             >
               <NextLink href={menu.link}>
-                <a onClick={closeMenu}>{menu.name}</a>
+                <Text
+                  color={router.pathname === menu.link ? "secondary" : "white"}
+                  cursor="pointer"
+                  onClick={closeMenu}
+                >
+                  {menu.name}
+                </Text>
               </NextLink>
             </chakra.li>
           ))}

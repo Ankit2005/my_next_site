@@ -139,7 +139,7 @@ function Service() {
             whileInView="visible"
             viewport={{ once: true }}
             transition={{ delay: index * 0.5, duration: 1.2 }}
-            // width={{ base: "100%", md: "40%", lg: "30%" }}
+            // width={{ base: "100%", md: "40%", lg: "30%" }} test
             variants={{
               visible: { opacity: inView ? 1 : 0, scale: inView ? 1 : 0 },
               hidden: { opacity: inView ? 1 : 0, scale: inView ? 1 : 0 },

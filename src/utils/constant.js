@@ -11,10 +11,6 @@ const menu = [
     name: "History",
     link: "/History",
   },
-  {
-    name: "About us",
-    link: "/about",
-  },
 ];
 
 export { menu };

@@ -6,5 +6,6 @@ import Discover from "./discover.svg";
 import Flawer from "./flawer.png";
 import Block from "./block.png";
 import Plant from "./plant.png";
+import Tik from "./tik.svg";
 
-export { Man, Build, Deliver, Design, Discover, Flawer, Block, Plant };
+export { Man, Build, Deliver, Design, Discover, Flawer, Block, Plant, Tik };

@@ -25,7 +25,7 @@ export default function Hero() {
       flexDir="column"
       textAlign={{ base: "center", lg: "left" }}
       mb="50px"
-      py={{ base: 20, md: 24 }}
+      py={{ base: 20, md: 14 }}
       px={[4, 6, 10, 14, 20]}
     >
       <Box

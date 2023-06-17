@@ -4,11 +4,13 @@ import {
   Container,
   chakra,
   shouldForwardProp,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { FaViber } from "react-icons/fa";
 
 import { motion, isValidMotionProp } from "framer-motion";
 import NextImage from "next/image";
+import CustomModal from "./Modal/CustomModal";
 
 const ChakraBox = chakra(motion.div, {
   /**
@@ -19,6 +21,7 @@ const ChakraBox = chakra(motion.div, {
 });
 
 export default function FlotingBtn() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Box position="fixed" bottom={0} right={0} zIndex="10">
       <Container
@@ -53,8 +56,10 @@ export default function FlotingBtn() {
             whileHover={{ scale: 1.2 }}
             onHoverStart={(e) => {}}
             onHoverEnd={(e) => {}}
+            onClick={() => onOpen()}
             //  width={58}
             // height="58"
+            _hover={{}}
             color="white"
             borderRadius={50}
             fontSize="40"
@@ -89,6 +94,14 @@ export default function FlotingBtn() {
           </Button>
         </ChakraBox>
       </Container>
+
+      {isOpen && (
+        <CustomModal
+          isOpen={isOpen}
+          onOpen={() => onOpen()}
+          onClose={() => onClose()}
+        />
+      )}
     </Box>
   );
 }

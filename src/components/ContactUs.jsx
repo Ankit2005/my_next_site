@@ -34,6 +34,7 @@ export default function ContactUs() {
   });
   return (
     <Container
+      id="contact-section"
       className="gd"
       maxW="full"
       mt={10}

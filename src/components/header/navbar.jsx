@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Box, Button, chakra, Text, useColorModeValue } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
@@ -10,6 +10,7 @@ import { menu } from "src/utils/constant";
 const Navbar = () => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSec, setActiveSec] = useState("");
 
   const bg = useColorModeValue("gray.200", "gray.300");
   const color = useColorModeValue("white", "white");
@@ -18,7 +19,23 @@ const Navbar = () => {
     setIsOpen(false);
   };
 
+  console.log("path nane --> ", router.pathname);
+
   // Navbar menu
+
+  const handleScrollClick = (name) => {
+    setActiveSec(name);
+    const section = document.getElementById(name);
+    section.scrollIntoView({ behavior: "smooth" });
+    closeMenu();
+  };
+
+  useEffect(() => {
+    if (router.pathname !== "/") {
+      setActiveSec("");
+    }
+    setActiveSec("");
+  }, [router.pathname]);
 
   return (
     <>
@@ -59,6 +76,7 @@ const Navbar = () => {
             >
               <NextLink href={menu.link}>
                 <Text
+                  //  onClick={() => handleScrollClick("home-section")}
                   color={router.pathname === menu.link ? "secondary" : "white"}
                   cursor="pointer"
                   onClick={closeMenu}
@@ -68,6 +86,16 @@ const Navbar = () => {
               </NextLink>
             </chakra.li>
           ))}
+
+          {router.pathname === "/" && (
+            <Text
+              color={activeSec === "contact-section" ? "secondary" : "white"}
+              cursor="pointer"
+              onClick={() => handleScrollClick("contact-section")}
+            >
+              Contact us
+            </Text>
+          )}
         </chakra.ul>
 
         {/* <ColorModeToggle /> sds */}

@@ -9,6 +9,7 @@ import {
   Icon,
   useColorModeValue,
   Container,
+  Box,
 } from "@chakra-ui/react";
 import {
   IoAnalyticsSharp,
@@ -129,8 +130,13 @@ function Service() {
   }, [controls, inView]);
 
   return (
-    <Container maxW={"5xl"} py={12}>
-      <SimpleGrid ref={ref} columns={{ base: 1 }} spacing={10}>
+    <Container maxW={"5xl"} py={4}>
+      <Box textAlign="center">
+        <Heading color="white" my="10" as="h2" size="3xl" noOfLines={1}>
+          All services
+        </Heading>
+      </Box>
+      <SimpleGrid ref={ref} columns={{ base: 1 }} spacing={5}>
         {rows.map((row, index) => (
           <Stack
             key={index}

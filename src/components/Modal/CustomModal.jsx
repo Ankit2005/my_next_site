@@ -20,7 +20,7 @@ const CustomModal = ({ isOpen, onClose }) => {
   const [isSuccess, setIsSuccess] = useState(false);
   return (
     <>
-      <Modal onClose={onClose} size={"md"} isOpen={isOpen}>
+      <Modal onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay isOpen={isOpen} />
         <ModalContent>
           <ModalCloseButton color="white" />

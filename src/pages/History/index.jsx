@@ -166,7 +166,7 @@ const Testimonial = ({ children }) => {
 const TestimonialContent = ({ children }) => {
   return (
     <Stack
-      bg={useColorModeValue("#cfbee8fc", "gray.800")}
+      bg="#cfbee8fc"
       boxShadow={"lg"}
       p={8}
       rounded={"xl"}
@@ -218,7 +218,7 @@ const TestimonialAvatar = ({ src, name, title }) => {
   return (
     <Flex align={"center"} mt={8} direction={"column"}>
       <Avatar src={src} alt={name} mb={2} />
-      <Stack border="1px" spacing={-1} align={"center"}>
+      <Stack spacing={-1} align={"center"}>
         <Text color={"white"} fontWeight={600}>
           {name}
         </Text>

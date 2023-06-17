@@ -89,6 +89,7 @@ const Navbar = () => {
 
           {router.pathname === "/" && (
             <Text
+              fontWeight="700"
               color={activeSec === "contact-section" ? "secondary" : "white"}
               cursor="pointer"
               onClick={() => handleScrollClick("contact-section")}

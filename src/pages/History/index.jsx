@@ -98,7 +98,9 @@ const HistoryPage = () => {
           {companyHistory.map((item, i) => (
             <Testimonial key={i}>
               <TestimonialContent>
-                <TestimonialHeading>{item.title}</TestimonialHeading>
+                <Heading color="gray.800" as={"h3"} fontSize={"xl"}>
+                  {item.title}
+                </Heading>
                 <TestimonialText>{item.description}</TestimonialText>
               </TestimonialContent>
               <TestimonialAvatar
@@ -117,7 +119,9 @@ const HistoryPage = () => {
           {companyHistory_two.map((item, i) => (
             <Testimonial key={i}>
               <TestimonialContent>
-                <TestimonialHeading>{item.title}</TestimonialHeading>
+                <Heading color="gray.800" as={"h3"} fontSize={"xl"}>
+                  {item.title}
+                </Heading>
                 <TestimonialText>{item.description}</TestimonialText>
               </TestimonialContent>
               <TestimonialAvatar
@@ -138,7 +142,9 @@ const HistoryPage = () => {
           {companyHistory_two.map((item, i) => (
             <Testimonial key={i}>
               <TestimonialContent>
-                <TestimonialHeading>{item.title}</TestimonialHeading>
+                <Heading color="gray.800" as={"h3"} fontSize={"xl"}>
+                  {item.title}
+                </Heading>
                 <TestimonialText>{item.description}</TestimonialText>
               </TestimonialContent>
               <TestimonialAvatar

@@ -129,6 +129,27 @@ const HistoryPage = () => {
           ))}
         </Stack>
       </Container>
+
+      <Container maxW={"7xl"} py={6} as={Stack}>
+        <Stack
+          direction={{ base: "column", md: "row" }}
+          spacing={{ base: 10, md: 4, lg: 10 }}
+        >
+          {companyHistory_two.map((item, i) => (
+            <Testimonial key={i}>
+              <TestimonialContent>
+                <TestimonialHeading>{item.title}</TestimonialHeading>
+                <TestimonialText>{item.description}</TestimonialText>
+              </TestimonialContent>
+              <TestimonialAvatar
+                src={item.image}
+                name={item.cmpName}
+                title={item.date}
+              />
+            </Testimonial>
+          ))}
+        </Stack>
+      </Container>
     </Box>
   );
 };
@@ -166,7 +187,6 @@ const Testimonial = ({ children }) => {
 const TestimonialContent = ({ children }) => {
   return (
     <Stack
-      bg="#cfbee8fc"
       boxShadow={"lg"}
       p={8}
       rounded={"xl"}
@@ -182,12 +202,13 @@ const TestimonialContent = ({ children }) => {
         borderRightWidth: 16,
         borderTop: "solid",
         borderTopWidth: 16,
-        borderTopColor: useColorModeValue("white", "gray.800"),
+        borderTopColor: "white",
         pos: "absolute",
         bottom: "-16px",
         left: "50%",
         transform: "translateX(-50%)",
       }}
+      bg="#cfbee8fc"
     >
       {children}
     </Stack>
@@ -204,11 +225,7 @@ const TestimonialHeading = ({ children }) => {
 
 const TestimonialText = ({ children }) => {
   return (
-    <Text
-      textAlign={"center"}
-      color={useColorModeValue("gray.800", "gray.400")}
-      fontSize={"sm"}
-    >
+    <Text textAlign={"center"} color="gray.800" fontSize={"sm"}>
       {children}
     </Text>
   );
@@ -216,13 +233,13 @@ const TestimonialText = ({ children }) => {
 
 const TestimonialAvatar = ({ src, name, title }) => {
   return (
-    <Flex align={"center"} mt={8} direction={"column"}>
+    <Flex mb="9" align={"center"} mt={8} direction={"column"}>
       <Avatar src={src} alt={name} mb={2} />
       <Stack spacing={-1} align={"center"}>
         <Text color={"white"} fontWeight={600}>
           {name}
         </Text>
-        <Text fontSize={"sm"} color={useColorModeValue("gray.600", "gray.400")}>
+        <Text fontSize={"sm"} color="gray.600">
           {title}
         </Text>
       </Stack>

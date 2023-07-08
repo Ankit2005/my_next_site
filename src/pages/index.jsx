@@ -17,6 +17,10 @@ import Work from "@/components/Work";
 import DevelopmentProcess from "@/components/DevelopmentProcess";
 import ContactUs from "@/components/ContactUs";
 import Technologies from "@/components/Technologies";
+import SectorWork from "@/components/SectorWork";
+import BestOfBest from "@/components/BestOfBest";
+import UiInteractionDesign from "@/components/UiInteractionDesign";
+import Testimonials from "@/components/Testimonials";
 
 const Home = () => {
   const color = useColorModeValue("red", "blue");
@@ -46,9 +50,13 @@ const Home = () => {
         }}
       />
       <Hero />
+      <SectorWork />
+      {/* <BestOfBest /> */}
       <Work />
+      <UiInteractionDesign />
       <DevelopmentProcess />
       <Technologies />
+      <Testimonials />
       <ContactUs />
     </>
   );

@@ -7,5 +7,17 @@ import Flawer from "./flawer.png";
 import Block from "./block.png";
 import Plant from "./plant.png";
 import Tik from "./tik.svg";
+import bgSquare from "./bg-square.svg";
 
-export { Man, Build, Deliver, Design, Discover, Flawer, Block, Plant, Tik };
+export {
+  Man,
+  Build,
+  Deliver,
+  Design,
+  Discover,
+  Flawer,
+  Block,
+  Plant,
+  Tik,
+  bgSquare,
+};

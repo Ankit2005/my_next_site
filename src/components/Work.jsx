@@ -41,27 +41,17 @@ export default function Work() {
   const cards = [
     {
       title: "Virtual Gym",
-      img: "https://cdn.pixabay.com/photo/2015/01/09/11/11/office-594132_1280.jpg",
+      img: "https://picsum.photos/500/300/?random",
       desc: "We designed Virtual Gym to make it more convenient to ensure that users only focus on fitness.",
     },
     {
       title: "Virtual Gym",
-      img: "https://cdn.pixabay.com/photo/2016/06/25/12/52/laptop-1478822_1280.jpg",
+      img: "https://picsum.photos/500/300/?random",
       desc: "We designed Virtual Gym to make it more convenient to ensure that users only focus on fitness.",
     },
     {
       title: "Virtual Gym",
-      img: "https://cdn.pixabay.com/photo/2015/05/31/13/45/working-791849_1280.jpg",
-      desc: "We designed Virtual Gym to make it more convenient to ensure that users only focus on fitness.",
-    },
-    {
-      title: "Virtual Gym",
-      img: "https://cdn.pixabay.com/photo/2019/12/17/17/09/woman-4702060_1280.jpg",
-      desc: "We designed Virtual Gym to make it more convenient to ensure that users only focus on fitness.",
-    },
-    {
-      title: "Virtual Gym",
-      img: "https://cdn.pixabay.com/photo/2019/12/17/17/09/woman-4702060_1280.jpg",
+      img: "https://picsum.photos/500/300/?random",
       desc: "We designed Virtual Gym to make it more convenient to ensure that users only focus on fitness.",
     },
   ];
@@ -87,6 +77,8 @@ export default function Work() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const svgBackground = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1234' height='527' viewBox='0 0 1234 527' fill='none'%3E%3Crect opacity='0.75' x='1126' y='64' width='232' height='232' rx='50' fill='%2315803D'/%3E%3Crect opacity='0.75' x='1017' y='325' width='202' height='202' rx='30' fill='%23A21CAF'/%3E%3Crect opacity='0.75' x='756' y='325' width='130' height='130' rx='30' fill='%23B45309'/%3E%3Crect opacity='0.75' x='457' width='161' height='161' rx='50' fill='%230369A1'/%3E%3Crect opacity='0.75' y='207' width='271' height='271' rx='50' fill='%23BE185D'/%3E%3C/svg%3E")`;
+
   return (
     <Box
       d="flex"
@@ -95,47 +87,37 @@ export default function Work() {
       flexDir="column"
       textAlign={{ base: "center", lg: "left" }}
       // p="4"
+
       className="gd"
+
+      // bgSquare
     >
       <Box>
         <Box
-          d={{ lg: "flex" }}
-          justifyContent={{ lg: "center" }}
-          alignItems={{ lg: "center" }}
-          flexDir={{ lg: "row-reverse" }}
-          w="100%"
-          as={motion.div}
-          {...textSlideVariant(0.2, "left", inView)}
+          display={{ base: "column", md: "flex" }}
+          justifyContent={{ base: "space-between" }}
+          alignItems="center"
+          as={motion.p}
+          {...textSlideVariant(0.2, "right", inView)}
+          w={{ base: "100%", md: "95%" }}
+          mx="auto"
+          mt="4"
         >
-          <Box>
-            <Box mb={{ base: 0 }} mt="14">
-              <Text
-                as={motion.p}
-                {...textSlideVariant(0.2, "right", inView)}
-                // letterSpacing={9}
-                textAlign="center"
-                color="#878787"
-                py="1"
-                fontSize={{ base: 13, sm: 17, md: 20, lg: 19, xl: 19 }}
-              >
-                DESIGNS THAT BRANDS ADORE & USERS ENJOY.
-              </Text>
-              <Text
-                as={motion.p}
-                {...textVariant("0.3")}
-                color="offWhiteText"
-                textAlign="center"
-                fontSize={{ base: 29, sm: 35, md: 48, lg: 44, xl: 48 }}
-                fontWeight={700}
-              >
-                Client Satisfying Projects
-              </Text>
-            </Box>
-          </Box>
+          <Text fontWeight="bold" fontSize={{ base: "4xl" }} color="white">
+            The best of the best
+          </Text>
+          <Button borderColor="white" color="white" variant="outline">
+            Sign up now
+          </Button>
         </Box>
 
-        <Box py="20">
-          <Wrap p="4" ref={ref} spacing="26px" justify="center">
+        <Box
+          py="4"
+          background={svgBackground}
+          backgroundSize="cover"
+          backgroundRepeat="no-repeat"
+        >
+          <Wrap px="14" mt="4" ref={ref} spacing="40px" justify="center">
             {cards.map((item, i) => (
               <WrapItem
                 key={i}
@@ -151,7 +133,7 @@ export default function Work() {
                 }}
                 // {...cardVariant(i * 0.4, inView)}
               >
-                <Center py={2}>
+                <Center>
                   <CardTil
                     description={item.desc}
                     imageSrc={item.img}

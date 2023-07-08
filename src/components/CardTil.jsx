@@ -1,6 +1,6 @@
 import React from "react";
 import Tilt from "react-tilt";
-import { Box, Text, Flex, Image, IconButton } from "@chakra-ui/react";
+import { Box, Text, Flex, Image, IconButton, Button } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { BsGithub, BsDiscord, BsPerson } from "react-icons/bs";
 
@@ -26,63 +26,47 @@ const CardTil = ({
     >
       <Tilt
         options={{
-          max: 30,
+          max: 10,
           scale: 1,
-          speed: 32,
+          speed: 10,
         }}
-        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
+        className="bg-tertiary-e p-5 rounded-1xl sm:w-[360px] w-full"
       >
-        <Box borderRadius="lg" overflow="hidden">
-          <Image
-            transform="scale(1.0)"
-            src={image}
-            alt="project_image"
-            objectFit="contain"
-            width="100%"
-            transition="0.3s ease-in-out"
-            _hover={{
-              transform: "scale(1.05)",
-            }}
-          />
-          <Flex
-            justify="end"
-            m="3"
-            position="absolute"
-            inset="0"
-            className="card-img_hover"
-          >
-            {/* <Box
-              onClick={() => window.open(source_code_link, "_blank")}
-              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
-            >
-              <IconButton
-                aria-label="github"
-                variant="ghost"
-                size="lg"
-                isRound={true}
-                _hover={{ bg: "secondary" }}
-                icon={<BsGithub size="28px" />}
-              />
-            </Box> */}
-          </Flex>
-        </Box>
+        <Box boxShadow="xl" borderRadius={10} bg="bgPrimary" p="0">
+          <Box borderRadius="lg" overflow="hidden">
+            <Image
+              transform="scale(1.0)"
+              src={image}
+              alt="project_image"
+              objectFit="contain"
+              width="100%"
+              transition="0.3s ease-in-out"
+              _hover={{
+                transform: "scale(1.05)",
+              }}
+            />
+          </Box>
 
-        <Box mt="5">
-          <Text color="white" fontWeight="bold" fontSize="24px">
-            {name}
-          </Text>
-          <Text mt="2" color="#878787" fontSize="18px">
-            {description}
-          </Text>
-        </Box>
-
-        {/* <Flex mt="4" flexWrap="wrap" gap="2">
-          {tags.map((tag) => (
-            <Text key={`${name}-${tag.name}`} fontSize="14px" color={tag.color}>
-              #{tag.name}
+          <Box mx="4" mt="5">
+            <Text color="white" fontWeight="bold" fontSize="24px">
+              {name}
             </Text>
-          ))}
-        </Flex> */}
+            <Text mt="2" color="white" fontSize="17px">
+              {description}
+            </Text>
+            <Box p="4" my="4">
+              <Button
+                w="full"
+                borderColor="white"
+                color="white"
+                variant="outline"
+                _hover={{}}
+              >
+                Sign up now
+              </Button>
+            </Box>
+          </Box>
+        </Box>
       </Tilt>
     </motion.div>
   );

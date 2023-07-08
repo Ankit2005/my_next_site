@@ -195,7 +195,9 @@ export default function Technologies() {
                             >
                               <Image src={tech.img} />
                             </Box>
-                            <Box my="4">{tech.technologie}</Box>
+                            <Box color="white" my="4">
+                              {tech.technologie}
+                            </Box>
                           </Box>
                         </Center>
                       </WrapItem>

@@ -122,29 +122,6 @@ export const fadeIn = (direction, type, delay, duration) => {
   };
 };
 
-// export const cardVariant = (delay, inView) => {
-//   return {
-//     initial: {
-//       ...{
-//         y: 50,
-//         opacity: 0,
-//       },
-//     },
-//     animate: {
-//       ...{
-//         // y: 0,
-//         y: inView ? 0 : 200,
-//         opacity: inView ? 1 : 0,
-//         transition: {
-//           type: "spring",
-//           duration: 1.25,
-//           delay: delay,
-//         },
-//       },
-//     },
-//   };
-// };
-
 export const zoomIn = (delay, duration) => {
   return {
     hidden: {

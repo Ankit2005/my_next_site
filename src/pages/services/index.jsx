@@ -9,8 +9,16 @@ import {
   Icon,
   useColorModeValue,
   Container,
+  useBreakpointValue,
   Box,
+  Button,
+  VStack,
+  UnorderedList,
+  ListItem,
 } from "@chakra-ui/react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import {
   IoAnalyticsSharp,
   IoLogoBitcoin,
@@ -19,109 +27,22 @@ import {
 import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-
-const imgBaseUrl = "https://source.unsplash.com/random/?Tech&";
-
-const rows = [
-  {
-    heading: "A digital Product design agency",
-    text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore",
-    features: [
-      {
-        icon: <Icon as={IoAnalyticsSharp} color={"yellow.500"} w={5} h={5} />,
-        iconBg: "yellow.100",
-        text: "Business Planning",
-      },
-      {
-        icon: <Icon as={IoLogoBitcoin} color={"green.500"} w={5} h={5} />,
-        iconBg: "green.100",
-        text: "Fully Responsive",
-      },
-      {
-        icon: <Icon as={IoSearchSharp} color={"purple.300"} w={5} h={5} />,
-        iconBg: "purple.500",
-        text: "S E O",
-      },
-    ],
-    imageUrl: "/img/img_test.jpg",
-  },
-  {
-    heading: "A digital Product design agency",
-    text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore",
-    features: [
-      {
-        icon: <Icon as={IoAnalyticsSharp} color={"yellow.500"} w={5} h={5} />,
-        iconBg: "yellow.100",
-        text: "Business Planning",
-      },
-      {
-        icon: <Icon as={IoLogoBitcoin} color={"green.500"} w={5} h={5} />,
-        iconBg: "green.100",
-        text: "Fully Responsive",
-      },
-      {
-        icon: <Icon as={IoSearchSharp} color={"purple.300"} w={5} h={5} />,
-        iconBg: "purple.500",
-        text: "S E O",
-      },
-    ],
-
-    imageUrl:
-      "https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2062&q=80",
-  },
-  {
-    heading: "A digital Product design agency",
-    text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore",
-    features: [
-      {
-        icon: <Icon as={IoAnalyticsSharp} color={"yellow.500"} w={5} h={5} />,
-        iconBg: "yellow.100",
-        text: "Business Planning",
-      },
-      {
-        icon: <Icon as={IoLogoBitcoin} color={"green.500"} w={5} h={5} />,
-        iconBg: "green.100",
-        text: "Fully Responsive",
-      },
-      {
-        icon: <Icon as={IoSearchSharp} color={"purple.300"} w={5} h={5} />,
-        iconBg: "purple.500",
-        text: "S E O",
-      },
-    ],
-
-    imageUrl:
-      "https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2062&q=80",
-  },
-  {
-    heading: "A digital Product design agency",
-    text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore",
-    features: [
-      {
-        icon: <Icon as={IoAnalyticsSharp} color={"yellow.500"} w={5} h={5} />,
-        iconBg: "yellow.100",
-        text: "Business Planning",
-      },
-      {
-        icon: <Icon as={IoLogoBitcoin} color={"green.500"} w={5} h={5} />,
-        iconBg: "green.100",
-        text: "Fully Responsive",
-      },
-      {
-        icon: <Icon as={IoSearchSharp} color={"purple.300"} w={5} h={5} />,
-        iconBg: "purple.500",
-        text: "S E O",
-      },
-    ],
-
-    imageUrl:
-      "https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2062&q=80",
-  },
-];
+import { textVariant } from "src/utils/motion";
+import {
+  MdArrowCircleRight,
+  MdArrowRight,
+  MdArrowRightAlt,
+} from "react-icons/md";
 
 function Service() {
   const controls = useAnimation();
   const [ref, inView] = useInView();
+
+  useEffect(() => {
+    AOS.init({
+      // Customize AOS options here
+    });
+  }, []);
 
   useEffect(() => {
     if (inView) {
@@ -130,95 +51,182 @@ function Service() {
   }, [controls, inView]);
 
   return (
-    <Container maxW={"5xl"} py={4}>
-      <Box textAlign="center">
-        <Heading color="white" my="10" as="h2" size="3xl" noOfLines={1}>
-          All services
-        </Heading>
-      </Box>
-      <SimpleGrid ref={ref} columns={{ base: 1 }} spacing={5}>
-        {rows.map((row, index) => (
-          <Stack
-            key={index}
-            as={motion.div}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.5, duration: 1.2 }}
-            // width={{ base: "100%", md: "40%", lg: "30%" }} test
-            variants={{
-              visible: { opacity: inView ? 1 : 0, scale: inView ? 1 : 0 },
-              hidden: { opacity: inView ? 1 : 0, scale: inView ? 1 : 0 },
-            }}
-            spacing={4}
-            p="5"
-            //  w="70%"
-            direction={{
-              base: "column",
-              md: index % 2 === 0 ? "row" : "row-reverse",
-            }}
-          >
-            <Stack
-              spacing={4}
-              divider={<StackDivider borderColor={"#718096"} />}
-            >
-              <Heading color="white">{row.heading}</Heading>
-              <Text color={"gray.500"} fontSize={"lg"}>
-                {row.text}
+    <Box py={4}>
+      <Stack direction={{ base: "column", md: "row" }}>
+        <Flex p={8} flex={1} justify={"center"}>
+          <Stack spacing={6} w={"full"} maxW={"lg"}>
+            <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
+              <Text
+                color={"#99EFD0"}
+                // mt="4"data-aos="fade-up"  {...textVariant("0.7")}
+                fontSize={{ base: 27, sm: 35, md: 48, lg: 30, xl: 56 }}
+                fontWeight={700}
+              >
+                Many reasons to get up and start to get back in the business
               </Text>
-              {row.features.map((feature, featureIndex) => (
-                <Feature
-                  key={featureIndex}
-                  icon={feature.icon}
-                  iconBg={feature.iconBg}
-                  text={feature.text}
-                  color="white"
-                />
-              ))}
-            </Stack>
-
-            <Flex
-              overflow="hidden"
-              width={{ base: "100%", md: "100%", lg: "60%" }}
+            </Heading>
+            <Text
+              data-aos="fade-up"
+              fontSize={{ base: "md", lg: "lg" }}
+              color={"gray.500"}
             >
-              <Image
-                transform="scale(1.0)"
-                src={`${row.imageUrl}`}
-                alt="some text"
-                objectFit="cover"
-                rounded="lg"
-                // width="80%"
-                transition="0.3s ease-in-out"
+              The harder you work for something, the greater you’ll feel when
+              you achieve it.
+            </Text>
+            <Stack direction={{ base: "column", md: "row" }} spacing={4}>
+              <Button
+                data-aos="fade-up"
+                rounded={"md"}
+                color="white"
+                bg={"secondary"}
                 _hover={{
-                  transform: "scale(1.05)",
+                  bg: "blue.500",
                 }}
-              />
-            </Flex>
+              >
+                Learn More
+              </Button>
+            </Stack>
           </Stack>
-        ))}
-      </SimpleGrid>
-    </Container>
+        </Flex>
+        <Flex flex={1} p="4">
+          <Image
+            data-aos="fade-up"
+            alt={"Login Image"}
+            // objectFit={"cover"}
+            src={"/img/man_run.svg"}
+          />
+        </Flex>
+      </Stack>
+
+      {/* Start card */}
+      <Box px="20">
+        <Box
+          data-aos="fade-up"
+          borderRadius={14}
+          bgGradient="linear(to-r, #1D2671, #C33764)"
+          p="10"
+          pos="relative"
+        >
+          <Box display={{ base: "column", md: "flex" }} alignItems="center">
+            {/* ---------- 1 ---------- */}
+            <Box w={{ base: "100%", lg: "40%" }} px="4">
+              <Box display={{ base: "flex" }} alignItems="center" gap="8">
+                <Image data-aos="fade-up" src="/img/figma.svg" alt="figma" />
+                <Image
+                  data-aos="fade-up"
+                  src="/img/daymand.svg"
+                  alt="daymand"
+                />
+                <Image data-aos="fade-up" src="/img/xd.svg" alt="xd" />
+              </Box>
+              <Text
+                data-aos="fade-up"
+                color="white"
+                fontWeight="bold"
+                fontSize={32}
+                my="6"
+              >
+                UI/UX Design
+              </Text>
+              <Box>
+                <UnorderedList
+                  // styleType="unset"
+                  color="white"
+                  fontSize={24}
+                  spacing="4"
+                >
+                  <ListItem data-aos="fade-up">Interface Design</ListItem>
+                  <ListItem data-aos="fade-up">Interaction Design</ListItem>
+                  <ListItem data-aos="fade-up">Research</ListItem>
+                  <ListItem data-aos="fade-up">Prototyping</ListItem>
+                </UnorderedList>
+                <Box px="1" py="4">
+                  <Box
+                    w="10"
+                    h="10"
+                    border="1px"
+                    borderColor="white"
+                    rounded="full"
+                    textAlign="center"
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                    data-aos="fade-up"
+                  >
+                    <MdArrowRightAlt fontSize={24} color="white" />
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
+
+            {/* ---------- 2 ---------- */}
+            <Box w={{ base: "100%", lg: "40%" }}>
+              <Box display={{ base: "flex" }} alignItems="center" gap="8">
+                <Image data-aos="fade-up" src="/img/ai.svg" alt="ai" />
+                <Image data-aos="fade-up" src="/img/ps.svg" alt="ps" />
+                <Image data-aos="fade-up" src="/img/ae.svg" alt="ae" />
+              </Box>
+              <Text
+                data-aos="fade-up"
+                color="white"
+                fontWeight="bold"
+                fontSize={32}
+                my="6"
+              >
+                Graphic Design
+              </Text>
+              <Box>
+                <UnorderedList
+                  // styleType="unset"
+                  color="white"
+                  fontSize={24}
+                  spacing="4"
+                >
+                  <ListItem data-aos="fade-up">Illustration Design</ListItem>
+                  <ListItem data-aos="fade-up">
+                    Motion Graphics & Animations
+                  </ListItem>
+                  <ListItem data-aos="fade-up">Icon Design</ListItem>
+                  <ListItem data-aos="fade-up">Logo Design</ListItem>
+                </UnorderedList>
+                <Box px="1" py="4">
+                  <Box
+                    w="10"
+                    h="10"
+                    border="1px"
+                    borderColor="white"
+                    rounded="full"
+                    textAlign="center"
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                    data-aos="fade-up"
+                  >
+                    <MdArrowRightAlt fontSize={24} color="white" />
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
+
+            {/* ---------- corner image ---------- */}
+
+            <Image
+              display={{ base: "none", md: "block" }}
+              pos="absolute"
+              right={0}
+              bottom="0"
+              height={250}
+              src="/img/ui-ux.svg"
+              size="300"
+              data-aos="fade-up"
+              // boxSize={300}
+              alt="ui-ux"
+            />
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 }
 
 export default Service;
-
-const Feature = ({ text, icon, iconBg }) => {
-  return (
-    <Stack direction={"row"} align={"center"}>
-      <Flex
-        w={8}
-        h={8}
-        align={"center"}
-        justify={"center"}
-        rounded={"full"}
-        bg={iconBg}
-      >
-        {icon}
-      </Flex>
-      <Text color={iconBg} fontWeight={600}>
-        {text}
-      </Text>
-    </Stack>
-  );
-};

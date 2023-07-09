@@ -9,7 +9,10 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { motion, useTransform, useViewportScroll } from "framer-motion";
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import { useInView } from "react-intersection-observer";
 import {
   slideIn,
@@ -67,15 +70,28 @@ const UiInteractionDesign = () => {
     triggerOnce: false, // Only trigger the animation once
   });
 
+  useEffect(() => {
+    AOS.init({
+      // Customize AOS options here
+    });
+  }, []);
+
   return (
     <Box p="6">
-      <Box mt="16" mx="10" textAlign="center" fontSize="6xl" color={"#878787"}>
+      <Box
+        data-aos="fade-up"
+        mt="16"
+        mx="10"
+        textAlign="center"
+        fontSize="6xl"
+        color={"#878787"}
+      >
         I’m a designer specialising in{" "}
-        <Text as="span" fontWeight="bold" color="white">
+        <Text data-aos="fade-up" as="span" fontWeight="bold" color="white">
           UI/UX
         </Text>{" "}
         and{" "}
-        <Text as="span" fontWeight="bold" color="white">
+        <Text data-aos="fade-up" as="span" fontWeight="bold" color="white">
           Interaction Design
         </Text>
       </Box>
@@ -83,6 +99,7 @@ const UiInteractionDesign = () => {
       <Box p="4" display="flex" justifyContent="center" w="full">
         <Image
           // objectFit="cover"
+          data-aos="fade-up"
           boxSize={1200}
           height={420}
           src="/img/ui-ux.svg"
@@ -94,23 +111,10 @@ const UiInteractionDesign = () => {
         <Wrap ref={ref} spacing="28px" justify="center">
           {list.map((item, i) => (
             <WrapItem
+              data-aos="fade-up"
               key={i}
-              as={motion.div}
-              initial="hidden"
-              whileInView="visible"
               borderRadius={16}
               bg="#121839"
-              transition={{ delay: i * 0.8, duration: 1.5 }}
-              variants={{
-                visible: {
-                  opacity: inView ? 1 : 0,
-                  scale: inView ? 1 : 0,
-                },
-                hidden: {
-                  opacity: inView ? 1 : 0,
-                  scale: inView ? 1 : 0,
-                },
-              }}
               width={{
                 base: "100%",
                 sm: "100%",
@@ -144,6 +148,7 @@ const UiInteractionDesign = () => {
                     whileInView="show"
                   >
                     <Image
+                      data-aos="fade-up"
                       borderRadius={10}
                       src={item.img}
                       boxSize="100px"
@@ -155,6 +160,7 @@ const UiInteractionDesign = () => {
                   <Stack mt={6} direction={"row"} spacing={2} align={"center"}>
                     <Stack textAlign="left" direction={"column"} spacing={3}>
                       <Text
+                        data-aos="fade-up"
                         fontSize={24}
                         {...textVariant("0.7")}
                         fontWeight={600}
@@ -162,7 +168,7 @@ const UiInteractionDesign = () => {
                       >
                         {item.title}
                       </Text>
-                      <Text color="white" fontSize={"md"}>
+                      <Text data-aos="fade-up" color="white" fontSize={"md"}>
                         {item.desc}
                       </Text>
                     </Stack>

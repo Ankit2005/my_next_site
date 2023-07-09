@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Tilt from "react-tilt";
 import {
   Box,
@@ -11,6 +11,8 @@ import {
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { BsGithub, BsDiscord, BsPerson } from "react-icons/bs";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const SimpleCardTil = ({
   name,
@@ -35,6 +37,12 @@ const SimpleCardTil = ({
     setIsHovered(false);
   };
 
+  useEffect(() => {
+    AOS.init({
+      // Customize AOS options here
+    });
+  }, []);
+
   return (
     <motion.div
       variants={fadeInVariants}
@@ -48,9 +56,11 @@ const SimpleCardTil = ({
           scale: 1,
           speed: 15,
         }}
+        data-aos="fade-up"
         className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
       >
         <Box
+          data-aos="fade-up"
           _hover={{
             bg: "#5956E9",
             color: "white !important",
@@ -63,6 +73,7 @@ const SimpleCardTil = ({
           bg="bgLightPrimary"
         >
           <Button
+            data-aos="fade-up"
             fontWeight="bold"
             borderRadius={26}
             textColor="white"
@@ -74,11 +85,17 @@ const SimpleCardTil = ({
           </Button>
 
           <Box mt="4" px="2">
-            <Text color="white" fontWeight="bold" fontSize="20px">
+            <Text
+              data-aos="fade-up"
+              color="white"
+              fontWeight="bold"
+              fontSize="20px"
+            >
               {name}
             </Text>
             <Text
               mt="2"
+              data-aos="fade-up"
               color={isHovered ? "white" : "#878787"}
               fontSize="18px"
             >

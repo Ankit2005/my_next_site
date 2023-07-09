@@ -36,6 +36,8 @@ import {
 import { Build, Deliver, Design, Discover } from "../assets/img";
 import { useEffect, useState } from "react";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function DevelopmentProcess() {
   const list = [
@@ -94,6 +96,12 @@ export default function DevelopmentProcess() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    AOS.init({
+      // Customize AOS options here
+    });
+  }, []);
+
   return (
     <Box
       d="flex"
@@ -112,19 +120,17 @@ export default function DevelopmentProcess() {
         mx="auto"
       >
         <Box
-          d={{ lg: "flex" }}
+          display={{ lg: "flex" }}
           justifyContent={{ lg: "center" }}
           alignItems={{ lg: "center" }}
           flexDir={{ lg: "row-reverse" }}
           w="100%"
-          as={motion.div}
-          {...textSlideVariant(0.2, "left", false)}
+          data-aos="fade-up"
         >
           <Box>
             <Box p="10">
               <Text
-                as={motion.p}
-                {...textVariant("0.3")}
+                data-aos="fade-up"
                 color="offWhiteText"
                 textAlign="center"
                 fontSize={{ base: 24, sm: 32, md: 48, lg: 44, xl: 38 }}
@@ -141,27 +147,7 @@ export default function DevelopmentProcess() {
             {list.map((item, i) => (
               <WrapItem
                 key={i}
-                as={motion.div}
-                initial="hidden"
-                whileInView="visible"
-                // as={motion.div}
-                // whileInView={{
-                //   scale: inView ? 1.1 : 1,
-                // }}
-                //  viewport={{ once: true }}
-                transition={{ delay: i * 0.8, duration: 1.5 }}
-                variants={{
-                  visible: {
-                    opacity: inView ? 1 : 0,
-                    scale: inView ? 1 : 0,
-                    //  x: 0,
-                  },
-                  hidden: {
-                    opacity: inView ? 1 : 0,
-                    scale: inView ? 1 : 0,
-                    // x: 100,
-                  },
-                }}
+                data-aos="fade-up"
                 width={{
                   base: "100%",
                   sm: "100%",
@@ -199,6 +185,7 @@ export default function DevelopmentProcess() {
                       // w="full"
                     >
                       <Image
+                        data-aos="fade-up"
                         borderRadius={10}
                         src={item.img}
                         boxSize="100px"
@@ -226,13 +213,17 @@ export default function DevelopmentProcess() {
                       <Stack textAlign="left" direction={"column"} spacing={3}>
                         <Text
                           fontSize={36}
-                          {...textVariant("0.7")}
+                          data-aos="fade-up"
                           fontWeight={600}
                           color="white"
                         >
                           {item.title}
                         </Text>
-                        <Text fontSize={"md"} color={"gray.500"}>
+                        <Text
+                          data-aos="fade-up"
+                          fontSize={"md"}
+                          color={"gray.500"}
+                        >
                           {item.desc}
                         </Text>
                       </Stack>

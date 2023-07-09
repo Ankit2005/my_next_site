@@ -21,6 +21,8 @@ import {
   HStack,
   Tag,
 } from "@chakra-ui/react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // import NextImage from "next/image";
 
@@ -61,6 +63,11 @@ export default function Work() {
   });
 
   const [x, setX] = useState(-100);
+  useEffect(() => {
+    AOS.init({
+      // Customize AOS options here
+    });
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -81,7 +88,7 @@ export default function Work() {
 
   return (
     <Box
-      d="flex"
+      display="flex"
       alignItems="center"
       justifyContent={{ base: "space-between" }}
       flexDir="column"
@@ -97,8 +104,6 @@ export default function Work() {
           display={{ base: "column", md: "flex" }}
           justifyContent={{ base: "space-between" }}
           alignItems="center"
-          as={motion.p}
-          {...textSlideVariant(0.2, "right", inView)}
           w={{ base: "100%", md: "95%" }}
           mx="auto"
           mt="4"
@@ -121,16 +126,8 @@ export default function Work() {
             {cards.map((item, i) => (
               <WrapItem
                 key={i}
-                as={motion.div}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.5, duration: 1.2 }}
                 width={{ base: "100%", md: "40%", lg: "30%" }}
-                variants={{
-                  visible: { opacity: inView ? 1 : 0, scale: inView ? 1 : 0 },
-                  hidden: { opacity: inView ? 1 : 0, scale: inView ? 1 : 0 },
-                }}
+
                 // {...cardVariant(i * 0.4, inView)}
               >
                 <Center>

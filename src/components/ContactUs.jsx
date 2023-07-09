@@ -1,237 +1,231 @@
 import {
   Container,
-  Flex,
   Box,
   Heading,
   Text,
-  IconButton,
-  Button,
-  VStack,
-  HStack,
-  Wrap,
-  WrapItem,
   FormControl,
-  FormLabel,
   Input,
-  InputGroup,
-  InputLeftElement,
   Textarea,
+  Grid,
+  GridItem,
+  Stack,
+  Button,
 } from "@chakra-ui/react";
-import {
-  MdPhone,
-  MdEmail,
-  MdLocationOn,
-  MdFacebook,
-  MdOutlineEmail,
-} from "react-icons/md";
-import { BsGithub, BsDiscord, BsPerson } from "react-icons/bs";
+import { useEffect, useRef } from "react";
+import { MdPhone, MdEmail, MdFax } from "react-icons/md";
+
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { MotionSlideUp } from "src/utils/motion";
 
 export default function ContactUs() {
   const [ref, inView] = useInView({
     triggerOnce: true, // Only trigger the animation once
   });
+
+  const mapRef = useRef(null);
+
+  useEffect(() => {
+    // Initialize Google Maps API
+    const googleMapsScript = document.createElement("script");
+    googleMapsScript.src = `https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places`;
+    googleMapsScript.async = true;
+    googleMapsScript.onload = initializeMap;
+    document.body.appendChild(googleMapsScript);
+
+    return () => {
+      // Clean up the Google Maps API script
+      document.body.removeChild(googleMapsScript);
+    };
+  }, []);
+
+  const initializeMap = () => {
+    // Initialize the map
+    const map = new window.google.maps.Map(mapRef.current, {
+      center: { lat: 37.7749, lng: -122.4194 }, // Set your desired map center coordinates
+      zoom: 12, // Set the initial zoom level
+    });
+
+    // Add a marker to the map
+    new window.google.maps.Marker({
+      position: { lat: 37.7749, lng: -122.4194 }, // Set the marker position
+      map,
+      title: "Marker Title", // Set the marker title
+    });
+  };
+
+  const handleSubmit = () => {
+    console.log("dsfsd");
+  };
+
   return (
     <Container
       id="contact-section"
       className="gd"
       maxW="full"
       mt={10}
-      centerContent
+      //centerContent
       overflow="hidden"
     >
-      <Flex>
-        <Box
-          bg="primary"
-          color="white"
-          border="1px"
-          borderColor="primaryBorder"
-          borderRadius="lg"
-          m={{ sm: 4, md: 16, lg: 20 }}
-          p={{ sm: 5, md: 5, lg: 16 }}
-          mt="20"
+      <Box ref={ref} p={20} mx="20">
+        <Grid
+          templateColumns={{ sm: "1fr", md: "2fr 2fr" }}
+          gap={8}
+          as={motion.div}
+          initial="hidden"
+          whileInView="visible"
+          // as={motion.div}
+          // whileInView={{
+          //   scale: inView ? 1.1 : 1,
+          // }}
+          //  viewport={{ once: true }}
+          transition={{ delay: 2, duration: 1.5 }}
+          animate={{
+            y: 50,
+            opacity: inView ? 1 : 0,
+            transition: {
+              type: "spring",
+              duration: 2,
+              delay: 2,
+            },
+          }}
+          variants={{
+            visible: {
+              opacity: inView ? 1 : 0,
+
+              //scale: inView ? 1 : 0,
+              // y: 100,
+            },
+            hidden: {
+              opacity: inView ? 1 : 0,
+              //scale: inView ? 1 : 0,
+              // y: 0,
+            },
+          }}
         >
-          <Box p={4}>
-            <Wrap ref={ref} spacing={{ base: 20, sm: 3, md: 5, lg: 20 }}>
-              <WrapItem>
+          <GridItem color="white">
+            <Heading>
+              Get in{" "}
+              <Text as="span" color="#8EAEFF">
+                Touch
+              </Text>
+            </Heading>
+            <Text color="white" my="8">
+              Enim tempor eget pharetra facilisis sed maecenas adipiscing. Eu
+              leo molestie vel, ornare non id blandit netus.
+            </Text>
+            <form onSubmit={handleSubmit}>
+              <FormControl id="name" marginBottom={4}>
+                <Input
+                  type="text"
+                  placeholder="Name"
+                  _placeholder={{ color: "gray.600" }}
+                  required
+                />
+              </FormControl>
+
+              <FormControl id="email" marginBottom={4}>
+                <Input
+                  type="email"
+                  placeholder="Email"
+                  _placeholder={{ color: "gray.600" }}
+                  required
+                />
+              </FormControl>
+
+              <FormControl id="phone" marginBottom={4}>
+                <Input
+                  type="number"
+                  placeholder="Phone Number"
+                  _placeholder={{ color: "gray.600" }}
+                  required
+                />
+              </FormControl>
+
+              <FormControl id="message" marginBottom={4}>
+                <Textarea
+                  rows={4}
+                  placeholder="How did you find us?"
+                  _placeholder={{ color: "gray.600" }}
+                  required
+                />
+              </FormControl>
+
+              <Button w="full" p="4" _hover={{}} bg="#8EAEFF" type="submit">
+                Submit
+              </Button>
+            </form>
+            <Box py={{ base: 5, sm: 5, md: 8, lg: 10 }}>
+              <Stack
+                mt={{ base: 6 }}
+                pl={0}
+                direction="row"
+                spacing={3}
+                alignItems="flex-start"
+              >
                 <Box
-                  as={motion.div}
-                  initial="hidden"
-                  whileInView="visible"
-                  // as={motion.div}
-                  // whileInView={{
-                  //   scale: inView ? 1.1 : 1,
-                  // }}
-                  //  viewport={{ once: true }}
-                  transition={{ delay: 1 * 0.8, duration: 1.5 }}
-                  variants={{
-                    visible: {
-                      opacity: inView ? 1 : 0,
-                      scale: inView ? 1 : 0,
-                      //  x: 0,
-                    },
-                    hidden: {
-                      opacity: inView ? 1 : 0,
-                      scale: inView ? 1 : 0,
-                      // x: 100,
-                    },
-                  }}
+                  size="md"
+                  height="48px"
+                  width="200px"
+                  variant="ghost"
+                  color="#DCE2FF"
+                  //_hover={{ border: "2px solid #1C6FEB" }}
                 >
-                  <Heading>
-                    Get in{" "}
-                    <Text color="secondary" as="span">
-                      Touch
-                    </Text>{" "}
-                  </Heading>
-                  <Text mt={{ sm: 3, md: 3, lg: 5 }} color="gray.500">
-                    Fill up the form below to contact
-                  </Text>
-                  <Box
-                    as={motion.div}
-                    initial="hidden"
-                    whileInView="visible"
-                    // as={motion.div}
-                    // whileInView={{
-                    //   scale: inView ? 1.1 : 1,
-                    // }}
-                    //  viewport={{ once: true }}
-                    transition={{ delay: 1 * 0.8, duration: 1.5 }}
-                    variants={{
-                      visible: {
-                        opacity: inView ? 1 : 0,
-                        scale: inView ? 1 : 0,
-                        //  x: 0,
-                      },
-                      hidden: {
-                        opacity: inView ? 1 : 0,
-                        scale: inView ? 1 : 0,
-                        // x: 100,
-                      },
-                    }}
-                    py={{ base: 5, sm: 5, md: 8, lg: 10 }}
-                  >
-                    <VStack pl={0} spacing={3} alignItems="flex-start">
-                      <Button
-                        size="md"
-                        height="48px"
-                        width="200px"
-                        variant="ghost"
-                        color="#DCE2FF"
-                        _hover={{ border: "2px solid #1C6FEB" }}
-                        leftIcon={<MdPhone color="#1970F1" size="20px" />}
-                      >
-                        +91-988888888
-                      </Button>
-                      <Button
-                        size="md"
-                        height="48px"
-                        width="200px"
-                        variant="ghost"
-                        color="#DCE2FF"
-                        _hover={{ border: "2px solid #1C6FEB" }}
-                        leftIcon={<MdEmail color="#1970F1" size="20px" />}
-                      >
-                        hello@abc.com
-                      </Button>
-                      <Button
-                        size="md"
-                        height="48px"
-                        width="200px"
-                        variant="ghost"
-                        color="#DCE2FF"
-                        _hover={{ border: "2px solid #1C6FEB" }}
-                        leftIcon={<MdLocationOn color="#1970F1" size="20px" />}
-                      >
-                        Ahmedabad, IN
-                      </Button>
-                    </VStack>
-                  </Box>
-                  <HStack
-                    mt={{ lg: 10, md: 10 }}
-                    spacing={5}
-                    px={5}
-                    alignItems="flex-start"
-                  >
-                    <IconButton
-                      aria-label="facebook"
-                      variant="ghost"
-                      size="lg"
-                      isRound={true}
-                      _hover={{ bg: "secondary" }}
-                      icon={<MdFacebook size="28px" />}
-                    />
-                    <IconButton
-                      aria-label="github"
-                      variant="ghost"
-                      size="lg"
-                      isRound={true}
-                      _hover={{ bg: "secondary" }}
-                      icon={<BsGithub size="28px" />}
-                    />
-                    <IconButton
-                      aria-label="discord"
-                      variant="ghost"
-                      size="lg"
-                      isRound={true}
-                      _hover={{ bg: "secondary" }}
-                      icon={<BsDiscord size="28px" />}
-                    />
-                  </HStack>
-                </Box>
-              </WrapItem>
-              <WrapItem>
-                <Box bg="white" borderRadius="lg">
-                  <Box m={8} color="#0B0E3F">
-                    <VStack spacing={5}>
-                      <FormControl id="name">
-                        <FormLabel>Your Name</FormLabel>
-                        <InputGroup borderColor="#E0E1E7">
-                          <InputLeftElement
-                            pointerEvents="none"
-                            children={<BsPerson color="gray.800" />}
-                          />
-                          <Input type="text" size="md" />
-                        </InputGroup>
-                      </FormControl>
-                      <FormControl id="name">
-                        <FormLabel>Mail</FormLabel>
-                        <InputGroup borderColor="#E0E1E7">
-                          <InputLeftElement
-                            pointerEvents="none"
-                            children={<MdOutlineEmail color="gray.800" />}
-                          />
-                          <Input type="text" size="md" />
-                        </InputGroup>
-                      </FormControl>
-                      <FormControl id="name">
-                        <FormLabel>Message</FormLabel>
-                        <Textarea
-                          borderColor="gray.300"
-                          _hover={{
-                            borderRadius: "gray.300",
-                          }}
-                          placeholder="message"
-                        />
-                      </FormControl>
-                      <FormControl id="name" float="right">
-                        <Button
-                          variant="solid"
-                          bg="#0D74FF"
-                          color="white"
-                          _hover={{}}
-                        >
-                          Send Message
-                        </Button>
-                      </FormControl>
-                    </VStack>
+                  <Box display="flex" alignItems="center" gap="4">
+                    <MdPhone color="#fff" size="30px" />
+                    <Box>
+                      <Text>PHONE</Text>
+                      <Text>+91-988888888</Text>
+                    </Box>
                   </Box>
                 </Box>
-              </WrapItem>
-            </Wrap>
-          </Box>
-        </Box>
-      </Flex>
+                <Box
+                  size="md"
+                  height="48px"
+                  width="200px"
+                  variant="ghost"
+                  color="#DCE2FF"
+                  //_hover={{ border: "2px solid #1C6FEB" }}
+                >
+                  <Box display="flex" alignItems="center" gap="4">
+                    <MdFax color="#fff" size="30px" />
+                    <Box>
+                      <Text>FAX</Text>
+                      <Text>329-39484</Text>
+                    </Box>
+                  </Box>
+                </Box>
+                <Box
+                  size="md"
+                  height="48px"
+                  width="200px"
+                  variant="ghost"
+                  color="#DCE2FF"
+                  //_hover={{ border: "2px solid #1C6FEB" }}
+                >
+                  <Box display="flex" alignItems="center" gap="4">
+                    <MdEmail color="#fff" size="30px" />
+                    <Box>
+                      <Text>EMAIL</Text>
+                      <Text>abc@gmail.com</Text>
+                    </Box>
+                  </Box>
+                </Box>
+              </Stack>
+            </Box>
+          </GridItem>
+
+          <GridItem>
+            <Box
+              ref={mapRef}
+              width="100%"
+              height={690}
+              marginBottom="4"
+              borderRadius="2xl"
+            />
+          </GridItem>
+        </Grid>
+      </Box>
     </Container>
   );
 }

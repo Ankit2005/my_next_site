@@ -25,19 +25,10 @@ import {
   TabPanels,
   TabIndicator,
 } from "@chakra-ui/react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-// import NextImage from "next/image";
-
-import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
-import { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
-import {
-  slideIn,
-  textVariant,
-  textSlideVariant,
-  cardVariant,
-} from "src/utils/motion";
 import { technologies } from "src/utils/technologies";
 
 export default function Technologies() {
@@ -69,26 +60,11 @@ export default function Technologies() {
     },
   ];
 
-  const [ref, inView] = useInView({
-    triggerOnce: true, // Only trigger the animation once
-  });
-
-  //const [x, setX] = useState(-100);
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     console.log("dddddddddd", window.scrollY);
-  //     if (window.scrollY >= 1730) {
-  //       setX(-100);
-  //     } else {
-  //       setX(0);
-  //     }
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
+  useEffect(() => {
+    AOS.init({
+      // Customize AOS options here
+    });
+  }, []);
 
   return (
     <Box
@@ -107,14 +83,12 @@ export default function Technologies() {
           alignItems={{ lg: "center" }}
           flexDir={{ lg: "row-reverse" }}
           w="100%"
-          as={motion.div}
-          {...textSlideVariant(0.2, "left", inView)}
+          data-aos="fade-up"
         >
           <Box>
             <Box mb={{ base: 0 }} mt="14">
               <Text
-                as={motion.p}
-                {...textVariant("0.3")}
+                data-aos="fade-up"
                 color="offWhiteText"
                 textAlign="center"
                 fontSize={{ base: 29, sm: 35, md: 48, lg: 44, xl: 48 }}
@@ -140,6 +114,7 @@ export default function Technologies() {
               ].map((tab, i) => (
                 <Tab
                   key={i}
+                  data-aos="fade-up"
                   _selected={{ borderBottom: "1px", color: "white" }}
                   color="gray.600"
                   _focus={{}}
@@ -151,48 +126,13 @@ export default function Technologies() {
 
             <TabPanels display={"flex"} justifyContent="center" py="10">
               <TabPanel width={{ base: "90%" }}>
-                <Wrap ref={ref} justify="center" spacing={0}>
+                <Wrap justify="center" spacing={0}>
                   {technologies.mobile.map((tech, i) => {
                     return (
-                      <WrapItem
-                        p="5"
-                        border="1px"
-                        borderColor="#47434333"
-                        key={i}
-                        // as={motion.div}
-                        as={motion.div}
-                        initial="hidden"
-                        whileInView="visible"
-                        // as={motion.div}
-                        // whileInView={{
-                        //   scale: inView ? 1.1 : 1,
-                        // }}
-                        //  viewport={{ once: true }}
-                        transition={{ delay: i * 0.8, duration: 1.5 }}
-                        variants={{
-                          visible: {
-                            opacity: inView ? 1 : 0,
-                            scale: inView ? 1 : 0,
-                            //  x: 0,
-                          },
-                          hidden: {
-                            opacity: inView ? 1 : 0,
-                            scale: inView ? 1 : 0,
-                            // x: 100,
-                          },
-                        }}
-                        // {...textSlideVariant(0.2, "right", inView)}
-                      >
+                      <WrapItem p="5" border="1px" borderColor="#47434333">
                         <Center>
-                          <Box textAlign="center" w="140px">
-                            <Box
-                              as={motion.div}
-                              whileHover={{
-                                scale: 1.6,
-                              }}
-                              display="flex"
-                              justifyContent="center"
-                            >
+                          <Box data-aos="fade-up" textAlign="center" w="140px">
+                            <Box display="flex" justifyContent="center">
                               <Image src={tech.img} />
                             </Box>
                             <Box color="white" my="4">

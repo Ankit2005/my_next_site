@@ -22,6 +22,8 @@ import {
   HStack,
   Tag,
 } from "@chakra-ui/react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // import NextImage from "next/image";
 
@@ -78,9 +80,15 @@ export default function SectorWork() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    AOS.init({
+      // Customize AOS options here
+    });
+  }, []);
+
   return (
     <Box
-      d="flex"
+      display="flex"
       alignItems="center"
       justifyContent={{ base: "space-between" }}
       flexDir="column"
@@ -90,19 +98,16 @@ export default function SectorWork() {
     >
       <Box>
         <Box
-          d={{ lg: "flex" }}
+          display={{ lg: "flex" }}
           justifyContent={{ lg: "center" }}
           alignItems={{ lg: "center" }}
           flexDir={{ lg: "row-reverse" }}
           w="100%"
-          as={motion.div}
-          {...textSlideVariant(0.2, "left", inView)}
         >
           <Box>
             <Box mb={{ base: 0 }} mt="4">
               <Text
-                as={motion.p}
-                {...textSlideVariant(0.2, "right", inView)}
+                data-aos="fade-up"
                 // letterSpacing={9}
                 textAlign="center"
                 bgGradient="linear(to-l, #F6F6F7, #7E808F)"

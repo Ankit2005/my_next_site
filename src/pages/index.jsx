@@ -21,6 +21,7 @@ import SectorWork from "@/components/SectorWork";
 import BestOfBest from "@/components/BestOfBest";
 import UiInteractionDesign from "@/components/UiInteractionDesign";
 import Testimonials from "@/components/Testimonials";
+import LatestNewsArticles from "@/components/LatestNewsArticles";
 
 const Home = () => {
   const color = useColorModeValue("red", "blue");
@@ -57,6 +58,7 @@ const Home = () => {
       <DevelopmentProcess />
       <Technologies />
       <Testimonials />
+      <LatestNewsArticles />
       <ContactUs />
     </>
   );

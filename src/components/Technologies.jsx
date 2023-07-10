@@ -127,26 +127,19 @@ export default function Technologies() {
             <TabPanels display={"flex"} justifyContent="center" py="10">
               <TabPanel width={{ base: "90%" }}>
                 <Wrap justify="center" spacing={0}>
-                  {technologies.mobile.map((tech, i) => {
-                    return (
-                      <WrapItem p="5" border="1px" borderColor="#47434333">
-                        <Center>
-                          <Box data-aos="fade-up" textAlign="center" w="140px">
-                            <Box display="flex" justifyContent="center">
-                              <Image src={tech.img} />
-                            </Box>
-                            <Box color="white" my="4">
-                              {tech.technologie}
-                            </Box>
-                          </Box>
-                        </Center>
-                      </WrapItem>
-                    );
-                  })}
+                  <GeneratedTab list={technologies?.mobile} />
                 </Wrap>
               </TabPanel>
-              <TabPanel></TabPanel>
-              <TabPanel></TabPanel>
+              <TabPanel>
+                <Wrap justify="center" spacing={0}>
+                  <GeneratedTab list={technologies?.front_end} />
+                </Wrap>
+              </TabPanel>
+              <TabPanel>
+                <Wrap justify="center" spacing={0}>
+                  <GeneratedTab list={technologies?.cms} />
+                </Wrap>
+              </TabPanel>
             </TabPanels>
           </Tabs>
         </Box>
@@ -154,3 +147,26 @@ export default function Technologies() {
     </Box>
   );
 }
+
+const GeneratedTab = ({ list }) =>
+  list.map((tech, i) => {
+    return (
+      <WrapItem key={i} p="5" border="1px" borderColor="#47434333">
+        <Center>
+          <Box
+            data-aos="fade-up"
+            data-aos-anchor-placement="bottom-center"
+            textAlign="center"
+            w="140px"
+          >
+            <Box display="flex" justifyContent="center">
+              <Image src={tech.img} />
+            </Box>
+            <Box color="white" my="4">
+              {tech.technologie}
+            </Box>
+          </Box>
+        </Center>
+      </WrapItem>
+    );
+  });

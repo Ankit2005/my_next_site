@@ -83,7 +83,7 @@ const UiInteractionDesign = () => {
         mt={{ base: 6, sm: 16 }}
         mx="10"
         textAlign="center"
-        fontSize={{ base: "1xl", sm: "4xl", md: "3xl", lg: "4xl", xl: "6xl" }}
+        fontSize={{ base: "2xl", sm: "4xl", md: "3xl", lg: "4xl", xl: "6xl" }}
         color={"#878787"}
       >
         I’m a designer specialising in{" "}

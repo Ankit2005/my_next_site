@@ -44,67 +44,59 @@ const SimpleCardTil = ({
   }, []);
 
   return (
-    <motion.div
-      variants={fadeInVariants}
-      initial="hidden"
-      animate="visible"
-      transition={{ type: "spring", delay: index * 0.5, duration: 0.5 }}
+    <Tilt
+      options={{
+        max: 15,
+        scale: 1,
+        speed: 15,
+      }}
+      className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
     >
-      <Tilt
-        options={{
-          max: 15,
-          scale: 1,
-          speed: 15,
+      <Box
+        _hover={{
+          bg: "#5956E9",
+          color: "white !important",
         }}
-        data-aos="fade-up"
-        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
+        data-aos="fade-up-left"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        borderRadius={16}
+        p="8"
+        //variants="outline"
+        bg="bgLightPrimary"
       >
-        <Box
-          data-aos="fade-up"
-          _hover={{
-            bg: "#5956E9",
-            color: "white !important",
-          }}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          borderRadius={16}
-          p="8"
-          variants="outline"
-          bg="bgLightPrimary"
+        <Button
+          //  data-aos="fade-up"
+          fontWeight="bold"
+          borderRadius={26}
+          textColor="white"
+          padding={6}
+          bg="#060B27"
+          _hover={{}}
         >
-          <Button
-            data-aos="fade-up"
-            fontWeight="bold"
-            borderRadius={26}
-            textColor="white"
-            padding={6}
-            bg="#060B27"
-            _hover={{}}
-          >
-            {btnText}
-          </Button>
+          {btnText}
+        </Button>
 
-          <Box mt="4" px="2">
-            <Text
-              data-aos="fade-up"
-              color="white"
-              fontWeight="bold"
-              fontSize="20px"
-            >
-              {name}
-            </Text>
-            <Text
-              mt="2"
-              data-aos="fade-up"
-              color={isHovered ? "white" : "#878787"}
-              fontSize="18px"
-            >
-              {description}
-            </Text>
-          </Box>
+        <Box mt="4" px="2">
+          <Text
+            //  data-aos="fade-up"
+            color="white"
+            fontWeight="bold"
+            fontSize="20px"
+          >
+            {name}
+          </Text>
+          <Text
+            mt="2"
+            // data-aos="fade-up"
+            color={isHovered ? "white" : "#878787"}
+            fontSize="18px"
+          >
+            {description}
+          </Text>
         </Box>
-      </Tilt>
-    </motion.div>
+      </Box>
+    </Tilt>
   );
 };
 

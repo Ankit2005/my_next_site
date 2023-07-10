@@ -40,6 +40,26 @@ const technologies = {
       img: "/img/titanium.svg",
     },
   ],
+  front_end: [
+    {
+      technologie: "React",
+      img: "/img/react.svg",
+    },
+    {
+      technologie: "Vue",
+      img: "/img/vue.svg",
+    },
+    {
+      technologie: "Angular",
+      img: "/img/angular.svg",
+    },
+  ],
+  cms: [
+    {
+      technologie: "Titanium",
+      img: "/img/titanium.svg",
+    },
+  ],
 };
 
 export { technologies };

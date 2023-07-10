@@ -31,13 +31,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-import {
-  slideIn,
-  textVariant,
-  textSlideVariant,
-  cardVariant,
-} from "src/utils/motion";
-import CardTil from "./CardTil";
+
 import SimpleCardTil from "./SimpleCard";
 
 export default function SectorWork() {
@@ -124,20 +118,7 @@ export default function SectorWork() {
         <Box py="6">
           <Wrap p="4" ref={ref} spacing="26px" justify="center">
             {cards.map((item, i) => (
-              <WrapItem
-                key={i}
-                as={motion.div}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.5, duration: 1.2 }}
-                width={{ base: "100%", md: "40%", lg: "30%" }}
-                variants={{
-                  visible: { opacity: inView ? 1 : 0, scale: inView ? 1 : 0 },
-                  hidden: { opacity: inView ? 1 : 0, scale: inView ? 1 : 0 },
-                }}
-                // {...cardVariant(i * 0.4, inView)}
-              >
+              <WrapItem key={i} width={{ base: "100%", md: "40%", lg: "30%" }}>
                 <Center py={2}>
                   <SimpleCardTil
                     description={item.desc}

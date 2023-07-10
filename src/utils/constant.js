@@ -8,8 +8,8 @@ const menu = [
     link: "/services",
   },
   {
-    name: "History",
-    link: "/History",
+    name: "AboutUs",
+    link: "/AboutUs",
   },
 ];
 

@@ -127,7 +127,7 @@ function Service() {
   return (
     <Box py={4}>
       <Stack
-        // height={{ base: , md: "95vh" }}
+        height={{ base: "60vh", md: "78vh" }}
         direction={{ base: "column", md: "row" }}
       >
         <Flex p={8} flex={1} justify={"center"}>
@@ -136,7 +136,7 @@ function Service() {
               <Text
                 color={"#99EFD0"}
                 // mt="4"data-aos="fade-up"  data-aos-duration="1500"  {...textVariant("0.7")}
-                fontSize={{ base: 27, sm: 45, md: 40, lg: 60, xl: 78 }}
+                fontSize={{ base: 27, sm: 45, md: 40, lg: 52, xl: 65 }}
                 fontWeight={700}
               >
                 Many reasons to get up and start to get back in the business
@@ -145,7 +145,7 @@ function Service() {
             <Text
               data-aos="fade-up"
               data-aos-duration="1500"
-              fontSize={{ base: "md", lg: "lg" }}
+              fontSize={{ base: "md", lg: "xl" }}
               color={"gray.500"}
             >
               The harder you work for something, the greater you’ll feel when
@@ -173,7 +173,7 @@ function Service() {
             data-aos-duration="1500"
             alt={"Login Image"}
             size="xl"
-            height={{ base: 400, sm: 550, md: 350 }}
+            height={{ base: 400, sm: 550, md: 350, lg: 600 }}
             // objectFit={"cover"}
             src={"/img/man_run.svg"}
           />

@@ -27,8 +27,10 @@ import { BsGithub, BsDiscord, BsPerson } from "react-icons/bs";
 
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
-import { useEffect } from "react";
+
+import React, { useEffect, useState } from "react";
+import AOS from "aos";
+
 import { useInView } from "react-intersection-observer";
 import {
   slideIn,
@@ -78,6 +80,12 @@ export default function LatestNewsArticles() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    AOS.init({
+      // Customize AOS options here
+    });
+  }, []);
+
   return (
     <Box
       display="flex"
@@ -96,14 +104,11 @@ export default function LatestNewsArticles() {
           flexDir={{ lg: "row-reverse" }}
           w="100%"
           mt="6"
-          as={motion.div}
-          {...textSlideVariant(0.2, "left", inView)}
         >
           <Box>
             <Box mb={{ base: 0 }} mt="4">
               <Text
-                as={motion.p}
-                {...textSlideVariant(0.2, "right", inView)}
+                data-aos="fade-up"
                 // letterSpacing={9}
                 textAlign="center"
                 bgGradient="linear(to-l, #F6F6F7, #7E808F)"
@@ -123,16 +128,8 @@ export default function LatestNewsArticles() {
               <WrapItem
                 key={i}
                 as={motion.div}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.5, duration: 1.2 }}
+                data-aos="fade-up"
                 width={{ base: "100%", md: "40%", lg: "30%" }}
-                variants={{
-                  visible: { opacity: inView ? 1 : 0, scale: inView ? 1 : 0 },
-                  hidden: { opacity: inView ? 1 : 0, scale: inView ? 1 : 0 },
-                }}
-                // {...cardVariant(i * 0.4, inView)}
               >
                 <Center>
                   <NewsCard
@@ -181,6 +178,7 @@ const NewsCard = ({
           speed: 10,
         }}
         className="bg-tertiary-e p-5 rounded-1xl sm:w-[360px] w-full"
+        data-aos="fade-up"
       >
         <Box
           border="1px"
@@ -201,14 +199,20 @@ const NewsCard = ({
               _hover={{
                 transform: "scale(1.05)",
               }}
+              data-aos="fade-up"
             />
           </Box>
 
           <Box mx="4" mt="5">
-            <Text color="white" fontWeight="bold" fontSize="24px">
+            <Text
+              color="white"
+              fontWeight="bold"
+              fontSize="24px"
+              data-aos="fade-up"
+            >
               {name}
             </Text>
-            <Text mt="2" color="#8E9BB7" fontSize="17px">
+            <Text mt="2" color="#8E9BB7" fontSize="17px" data-aos="fade-up">
               {description}
             </Text>
             <Box
@@ -220,8 +224,14 @@ const NewsCard = ({
               borderTop="1px"
               borderColor="#282D45"
             >
-              <Text color="#8E9BB7">February 8, 2023</Text>
-              <Text fontWeight="bold" color="white">{`Read more ->`}</Text>
+              <Text data-aos="fade-up" color="#8E9BB7">
+                February 8, 2023
+              </Text>
+              <Text
+                data-aos="fade-up"
+                fontWeight="bold"
+                color="white"
+              >{`Read more ->`}</Text>
             </Box>
           </Box>
         </Box>

@@ -58,7 +58,7 @@ function Service() {
             <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
               <Text
                 color={"#99EFD0"}
-                // mt="4"data-aos="fade-up"  {...textVariant("0.7")}
+                // mt="4"data-aos="fade-up"  data-aos-duration="3000"  {...textVariant("0.7")}
                 fontSize={{ base: 27, sm: 35, md: 48, lg: 30, xl: 56 }}
                 fontWeight={700}
               >
@@ -67,6 +67,7 @@ function Service() {
             </Heading>
             <Text
               data-aos="fade-up"
+              data-aos-duration="3000"
               fontSize={{ base: "md", lg: "lg" }}
               color={"gray.500"}
             >
@@ -76,6 +77,7 @@ function Service() {
             <Stack direction={{ base: "column", md: "row" }} spacing={4}>
               <Button
                 data-aos="fade-up"
+                data-aos-duration="3000"
                 rounded={"md"}
                 color="white"
                 bg={"secondary"}
@@ -91,6 +93,7 @@ function Service() {
         <Flex flex={1} p="4">
           <Image
             data-aos="fade-up"
+            data-aos-duration="3000"
             alt={"Login Image"}
             // objectFit={"cover"}
             src={"/img/man_run.svg"}
@@ -102,6 +105,7 @@ function Service() {
       <Box px="20">
         <Box
           data-aos="fade-up"
+          data-aos-duration="3000"
           borderRadius={14}
           bgGradient="linear(to-r, #1D2671, #C33764)"
           p="10"
@@ -111,16 +115,28 @@ function Service() {
             {/* ---------- 1 ---------- */}
             <Box w={{ base: "100%", lg: "40%" }} px="4">
               <Box display={{ base: "flex" }} alignItems="center" gap="8">
-                <Image data-aos="fade-up" src="/img/figma.svg" alt="figma" />
                 <Image
                   data-aos="fade-up"
+                  data-aos-duration="3000"
+                  src="/img/figma.svg"
+                  alt="figma"
+                />
+                <Image
+                  data-aos="fade-up"
+                  data-aos-duration="3000"
                   src="/img/daymand.svg"
                   alt="daymand"
                 />
-                <Image data-aos="fade-up" src="/img/xd.svg" alt="xd" />
+                <Image
+                  data-aos="fade-up"
+                  data-aos-duration="3000"
+                  src="/img/xd.svg"
+                  alt="xd"
+                />
               </Box>
               <Text
                 data-aos="fade-up"
+                data-aos-duration="3000"
                 color="white"
                 fontWeight="bold"
                 fontSize={32}
@@ -135,10 +151,18 @@ function Service() {
                   fontSize={24}
                   spacing="4"
                 >
-                  <ListItem data-aos="fade-up">Interface Design</ListItem>
-                  <ListItem data-aos="fade-up">Interaction Design</ListItem>
-                  <ListItem data-aos="fade-up">Research</ListItem>
-                  <ListItem data-aos="fade-up">Prototyping</ListItem>
+                  <ListItem data-aos="fade-up" data-aos-duration="3000">
+                    Interface Design
+                  </ListItem>
+                  <ListItem data-aos="fade-up" data-aos-duration="3000">
+                    Interaction Design
+                  </ListItem>
+                  <ListItem data-aos="fade-up" data-aos-duration="3000">
+                    Research
+                  </ListItem>
+                  <ListItem data-aos="fade-up" data-aos-duration="3000">
+                    Prototyping
+                  </ListItem>
                 </UnorderedList>
                 <Box px="1" py="4">
                   <Box
@@ -152,6 +176,7 @@ function Service() {
                     justifyContent="center"
                     alignItems="center"
                     data-aos="fade-up"
+                    data-aos-duration="3000"
                   >
                     <MdArrowRightAlt fontSize={24} color="white" />
                   </Box>
@@ -162,12 +187,28 @@ function Service() {
             {/* ---------- 2 ---------- */}
             <Box w={{ base: "100%", lg: "40%" }}>
               <Box display={{ base: "flex" }} alignItems="center" gap="8">
-                <Image data-aos="fade-up" src="/img/ai.svg" alt="ai" />
-                <Image data-aos="fade-up" src="/img/ps.svg" alt="ps" />
-                <Image data-aos="fade-up" src="/img/ae.svg" alt="ae" />
+                <Image
+                  data-aos="fade-up"
+                  data-aos-duration="3000"
+                  src="/img/ai.svg"
+                  alt="ai"
+                />
+                <Image
+                  data-aos="fade-up"
+                  data-aos-duration="3000"
+                  src="/img/ps.svg"
+                  alt="ps"
+                />
+                <Image
+                  data-aos="fade-up"
+                  data-aos-duration="3000"
+                  src="/img/ae.svg"
+                  alt="ae"
+                />
               </Box>
               <Text
                 data-aos="fade-up"
+                data-aos-duration="3000"
                 color="white"
                 fontWeight="bold"
                 fontSize={32}
@@ -182,12 +223,18 @@ function Service() {
                   fontSize={24}
                   spacing="4"
                 >
-                  <ListItem data-aos="fade-up">Illustration Design</ListItem>
-                  <ListItem data-aos="fade-up">
+                  <ListItem data-aos="fade-up" data-aos-duration="3000">
+                    Illustration Design
+                  </ListItem>
+                  <ListItem data-aos="fade-up" data-aos-duration="3000">
                     Motion Graphics & Animations
                   </ListItem>
-                  <ListItem data-aos="fade-up">Icon Design</ListItem>
-                  <ListItem data-aos="fade-up">Logo Design</ListItem>
+                  <ListItem data-aos="fade-up" data-aos-duration="3000">
+                    Icon Design
+                  </ListItem>
+                  <ListItem data-aos="fade-up" data-aos-duration="3000">
+                    Logo Design
+                  </ListItem>
                 </UnorderedList>
                 <Box px="1" py="4">
                   <Box
@@ -201,6 +248,7 @@ function Service() {
                     justifyContent="center"
                     alignItems="center"
                     data-aos="fade-up"
+                    data-aos-duration="3000"
                   >
                     <MdArrowRightAlt fontSize={24} color="white" />
                   </Box>
@@ -219,6 +267,7 @@ function Service() {
               src="/img/ui-ux.svg"
               size="300"
               data-aos="fade-up"
+              data-aos-duration="3000"
               // boxSize={300}
               alt="ui-ux"
             />

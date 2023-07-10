@@ -12,8 +12,8 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { useEffect, useRef } from "react";
+import AOS from "aos";
 import { MdPhone, MdEmail, MdFax } from "react-icons/md";
-
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { MotionSlideUp } from "src/utils/motion";
@@ -37,6 +37,12 @@ export default function ContactUs() {
       // Clean up the Google Maps API script
       document.body.removeChild(googleMapsScript);
     };
+  }, []);
+
+  useEffect(() => {
+    AOS.init({
+      // Customize AOS options here
+    });
   }, []);
 
   const initializeMap = () => {
@@ -68,49 +74,15 @@ export default function ContactUs() {
       overflow="hidden"
     >
       <Box ref={ref} p={20} mx="20">
-        <Grid
-          templateColumns={{ sm: "1fr", md: "2fr 2fr" }}
-          gap={8}
-          as={motion.div}
-          initial="hidden"
-          whileInView="visible"
-          // as={motion.div}
-          // whileInView={{
-          //   scale: inView ? 1.1 : 1,
-          // }}
-          //  viewport={{ once: true }}
-          transition={{ delay: 2, duration: 1.5 }}
-          animate={{
-            y: 50,
-            opacity: inView ? 1 : 0,
-            transition: {
-              type: "spring",
-              duration: 2,
-              delay: 2,
-            },
-          }}
-          variants={{
-            visible: {
-              opacity: inView ? 1 : 0,
-
-              //scale: inView ? 1 : 0,
-              // y: 100,
-            },
-            hidden: {
-              opacity: inView ? 1 : 0,
-              //scale: inView ? 1 : 0,
-              // y: 0,
-            },
-          }}
-        >
+        <Grid templateColumns={{ sm: "1fr", md: "2fr 2fr" }} gap={8}>
           <GridItem color="white">
-            <Heading>
+            <Heading data-aos="fade-up">
               Get in{" "}
               <Text as="span" color="#8EAEFF">
                 Touch
               </Text>
             </Heading>
-            <Text color="white" my="8">
+            <Text color="white" my="8" data-aos="fade-up">
               Enim tempor eget pharetra facilisis sed maecenas adipiscing. Eu
               leo molestie vel, ornare non id blandit netus.
             </Text>
@@ -121,6 +93,7 @@ export default function ContactUs() {
                   placeholder="Name"
                   _placeholder={{ color: "gray.600" }}
                   required
+                  data-aos="fade-up"
                 />
               </FormControl>
 
@@ -130,6 +103,7 @@ export default function ContactUs() {
                   placeholder="Email"
                   _placeholder={{ color: "gray.600" }}
                   required
+                  data-aos="fade-up"
                 />
               </FormControl>
 
@@ -139,6 +113,7 @@ export default function ContactUs() {
                   placeholder="Phone Number"
                   _placeholder={{ color: "gray.600" }}
                   required
+                  data-aos="fade-up"
                 />
               </FormControl>
 
@@ -148,10 +123,18 @@ export default function ContactUs() {
                   placeholder="How did you find us?"
                   _placeholder={{ color: "gray.600" }}
                   required
+                  data-aos="fade-up"
                 />
               </FormControl>
 
-              <Button w="full" p="4" _hover={{}} bg="#8EAEFF" type="submit">
+              <Button
+                w="full"
+                p="4"
+                _hover={{}}
+                bg="#8EAEFF"
+                type="submit"
+                data-aos="fade-up"
+              >
                 Submit
               </Button>
             </form>
@@ -171,7 +154,12 @@ export default function ContactUs() {
                   color="#DCE2FF"
                   //_hover={{ border: "2px solid #1C6FEB" }}
                 >
-                  <Box display="flex" alignItems="center" gap="4">
+                  <Box
+                    display="flex"
+                    alignItems="center"
+                    gap="4"
+                    data-aos="fade-up"
+                  >
                     <MdPhone color="#fff" size="30px" />
                     <Box>
                       <Text>PHONE</Text>
@@ -187,7 +175,12 @@ export default function ContactUs() {
                   color="#DCE2FF"
                   //_hover={{ border: "2px solid #1C6FEB" }}
                 >
-                  <Box display="flex" alignItems="center" gap="4">
+                  <Box
+                    display="flex"
+                    alignItems="center"
+                    gap="4"
+                    data-aos="fade-up"
+                  >
                     <MdFax color="#fff" size="30px" />
                     <Box>
                       <Text>FAX</Text>
@@ -203,7 +196,12 @@ export default function ContactUs() {
                   color="#DCE2FF"
                   //_hover={{ border: "2px solid #1C6FEB" }}
                 >
-                  <Box display="flex" alignItems="center" gap="4">
+                  <Box
+                    display="flex"
+                    alignItems="center"
+                    gap="4"
+                    data-aos="fade-up"
+                  >
                     <MdEmail color="#fff" size="30px" />
                     <Box>
                       <Text>EMAIL</Text>
@@ -222,6 +220,7 @@ export default function ContactUs() {
               height={690}
               marginBottom="4"
               borderRadius="2xl"
+              data-aos="fade-up"
             />
           </GridItem>
         </Grid>

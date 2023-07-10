@@ -123,7 +123,13 @@ export default function LatestNewsArticles() {
         </Box>
 
         <Box py="4">
-          <Wrap px="14" mt="4" ref={ref} spacing="40px" justify="center">
+          <Wrap
+            px={{ base: 4, sm: 14 }}
+            mt="4"
+            ref={ref}
+            spacing="40px"
+            justify="center"
+          >
             {cards.map((item, i) => (
               <WrapItem
                 key={i}

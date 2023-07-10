@@ -10,6 +10,9 @@ import {
   GridItem,
   Stack,
   Button,
+  Wrap,
+  Center,
+  WrapItem,
 } from "@chakra-ui/react";
 import { useEffect, useRef } from "react";
 import AOS from "aos";
@@ -73,151 +76,143 @@ export default function ContactUs() {
       //centerContent
       overflow="hidden"
     >
-      <Box ref={ref} p={20} mx="20">
-        <Grid templateColumns={{ sm: "1fr", md: "2fr 2fr" }} gap={8}>
-          <GridItem color="white">
-            <Heading data-aos="fade-up">
-              Get in{" "}
-              <Text as="span" color="#8EAEFF">
-                Touch
+      <Box p={{ base: 1, sm: 8, lg: 14 }} mx={{ base: 1, sm: 8, lg: 14 }}>
+        <Grid
+          //  templateColumns={{ base: "1fr 1fr", sm: "2fr", md: "2fr 2fr" }}
+          templateColumns={{
+            base: "1fr",
+            sm: "1fr",
+            md: "repeat(1, 1fr)",
+            lg: "repeat(1,1fr)",
+            xl: "repeat(2, 1fr)",
+          }} // Responsive column layout
+          gap={8}
+        >
+          <GridItem colSpan={{ base: 2, sm: 1 }} color="white">
+            <Box w={{ base: "100%" }}>
+              <Heading mt="6" data-aos="fade-up">
+                Get in{" "}
+                <Text as="span" color="#8EAEFF">
+                  Touch
+                </Text>
+              </Heading>
+              <Text color="white" my="8" data-aos="fade-up">
+                Enim tempor eget pharetra facilisis sed maecenas adipiscing. Eu
+                leo molestie vel, ornare non id blandit netus.
               </Text>
-            </Heading>
-            <Text color="white" my="8" data-aos="fade-up">
-              Enim tempor eget pharetra facilisis sed maecenas adipiscing. Eu
-              leo molestie vel, ornare non id blandit netus.
-            </Text>
-            <form onSubmit={handleSubmit}>
-              <FormControl id="name" marginBottom={4}>
-                <Input
-                  type="text"
-                  placeholder="Name"
-                  _placeholder={{ color: "gray.600" }}
-                  required
-                  data-aos="fade-up"
-                />
-              </FormControl>
+              <Box>
+                <form onSubmit={handleSubmit}>
+                  <FormControl id="name" marginBottom={4}>
+                    <Input
+                      type="text"
+                      placeholder="Name"
+                      _placeholder={{ color: "gray.600" }}
+                      required
+                      data-aos="fade-up"
+                    />
+                  </FormControl>
 
-              <FormControl id="email" marginBottom={4}>
-                <Input
-                  type="email"
-                  placeholder="Email"
-                  _placeholder={{ color: "gray.600" }}
-                  required
-                  data-aos="fade-up"
-                />
-              </FormControl>
+                  <FormControl id="email" marginBottom={4}>
+                    <Input
+                      type="email"
+                      placeholder="Email"
+                      _placeholder={{ color: "gray.600" }}
+                      required
+                      data-aos="fade-up"
+                    />
+                  </FormControl>
 
-              <FormControl id="phone" marginBottom={4}>
-                <Input
-                  type="number"
-                  placeholder="Phone Number"
-                  _placeholder={{ color: "gray.600" }}
-                  required
-                  data-aos="fade-up"
-                />
-              </FormControl>
+                  <FormControl id="phone" marginBottom={4}>
+                    <Input
+                      type="number"
+                      placeholder="Phone Number"
+                      _placeholder={{ color: "gray.600" }}
+                      required
+                      data-aos="fade-up"
+                    />
+                  </FormControl>
 
-              <FormControl id="message" marginBottom={4}>
-                <Textarea
-                  rows={4}
-                  placeholder="How did you find us?"
-                  _placeholder={{ color: "gray.600" }}
-                  required
-                  data-aos="fade-up"
-                />
-              </FormControl>
+                  <FormControl id="message" marginBottom={4}>
+                    <Textarea
+                      rows={4}
+                      placeholder="How did you find us?"
+                      _placeholder={{ color: "gray.600" }}
+                      required
+                      data-aos="fade-up"
+                    />
+                  </FormControl>
 
-              <Button
-                w="full"
-                p="4"
-                _hover={{}}
-                bg="#8EAEFF"
-                type="submit"
-                data-aos="fade-up"
-              >
-                Submit
-              </Button>
-            </form>
-            <Box py={{ base: 5, sm: 5, md: 8, lg: 10 }}>
-              <Stack
-                mt={{ base: 6 }}
-                pl={0}
-                direction="row"
-                spacing={3}
-                alignItems="flex-start"
-              >
-                <Box
-                  size="md"
-                  height="48px"
-                  width="200px"
-                  variant="ghost"
-                  color="#DCE2FF"
-                  //_hover={{ border: "2px solid #1C6FEB" }}
-                >
-                  <Box
-                    display="flex"
-                    alignItems="center"
-                    gap="4"
+                  <Button
+                    w="full"
+                    p="4"
+                    _hover={{}}
+                    bg="#8EAEFF"
+                    type="submit"
                     data-aos="fade-up"
                   >
-                    <MdPhone color="#fff" size="30px" />
-                    <Box>
-                      <Text>PHONE</Text>
-                      <Text>+91-988888888</Text>
-                    </Box>
-                  </Box>
-                </Box>
-                <Box
-                  size="md"
-                  height="48px"
-                  width="200px"
-                  variant="ghost"
-                  color="#DCE2FF"
-                  //_hover={{ border: "2px solid #1C6FEB" }}
+                    Submit
+                  </Button>
+                </form>
+              </Box>
+              <Box py={{ base: 5, sm: 5, md: 8, lg: 10 }}>
+                <Wrap
+                  spacing="18px"
+                  justify={{ base: "flex-start", md: "space-between" }}
                 >
-                  <Box
-                    display="flex"
-                    alignItems="center"
-                    gap="4"
-                    data-aos="fade-up"
-                  >
-                    <MdFax color="#fff" size="30px" />
-                    <Box>
-                      <Text>FAX</Text>
-                      <Text>329-39484</Text>
+                  <WrapItem>
+                    <Box
+                      display="flex"
+                      alignItems="center"
+                      justifyContent="flex-start"
+                      gap="2"
+                      data-aos="fade-up"
+                      // w="full"
+                    >
+                      <MdPhone color="#fff" size="30px" />
+                      <Box>
+                        <Text>PHONE</Text>
+                        <Text>+91-988888888</Text>
+                      </Box>
                     </Box>
-                  </Box>
-                </Box>
-                <Box
-                  size="md"
-                  height="48px"
-                  width="200px"
-                  variant="ghost"
-                  color="#DCE2FF"
-                  //_hover={{ border: "2px solid #1C6FEB" }}
-                >
-                  <Box
-                    display="flex"
-                    alignItems="center"
-                    gap="4"
-                    data-aos="fade-up"
-                  >
-                    <MdEmail color="#fff" size="30px" />
-                    <Box>
-                      <Text>EMAIL</Text>
-                      <Text>abc@gmail.com</Text>
+                  </WrapItem>
+                  <WrapItem>
+                    <Box
+                      display="flex"
+                      alignItems="center"
+                      gap="4"
+                      data-aos="fade-up"
+                    >
+                      <MdFax color="#fff" size="30px" />
+                      <Box>
+                        <Text>FAX</Text>
+                        <Text>329-39484</Text>
+                      </Box>
                     </Box>
-                  </Box>
-                </Box>
-              </Stack>
+                  </WrapItem>
+                  <WrapItem>
+                    <Box
+                      display="flex"
+                      alignItems="center"
+                      gap="4"
+                      data-aos="fade-up"
+                    >
+                      <MdEmail color="#fff" size="30px" />
+                      <Box>
+                        <Text>EMAIL</Text>
+                        <Text>abc@gmail.com</Text>
+                      </Box>
+                    </Box>
+                  </WrapItem>
+                </Wrap>
+              </Box>
             </Box>
           </GridItem>
 
-          <GridItem>
+          <GridItem colSpan={{ base: 2, sm: 1 }}>
             <Box
               ref={mapRef}
               width="100%"
-              height={690}
+              height={{ base: 300, sm: 400, lg: 400, xl: 690 }}
               marginBottom="4"
               borderRadius="2xl"
               data-aos="fade-up"

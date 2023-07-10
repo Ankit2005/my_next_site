@@ -80,10 +80,10 @@ const UiInteractionDesign = () => {
     <Box p="6">
       <Box
         data-aos="fade-up"
-        mt="16"
+        mt={{ base: 6, sm: 16 }}
         mx="10"
         textAlign="center"
-        fontSize="6xl"
+        fontSize={{ base: "1xl", sm: "4xl", md: "3xl", lg: "4xl", xl: "6xl" }}
         color={"#878787"}
       >
         I’m a designer specialising in{" "}
@@ -101,13 +101,13 @@ const UiInteractionDesign = () => {
           // objectFit="cover"
           data-aos="fade-up"
           boxSize={1200}
-          height={420}
+          height={{ base: 200, sm: 420 }}
           src="/img/ui-ux.svg"
           alt="Dan Abramov"
         />
       </Box>
 
-      <Box mt="28">
+      <Box mt={{ base: "4", sm: "28" }}>
         <Wrap ref={ref} spacing="28px" justify="center">
           {list.map((item, i) => (
             <WrapItem

@@ -39,7 +39,7 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <Box px={{ base: "10", lg: 20 }} py="10" bg="#060B27">
+    <Box px={{ base: "6", lg: 20 }} py="10" bg="#060B27">
       <Box display="flex" justifyContent="flex-start" alignItems="center">
         <Button data-aos="fade-up" bg="#242841" color="white" _hover={{}}>
           Testimonials
@@ -80,11 +80,11 @@ const Testimonials = () => {
             <Box
               display={{ base: "column", sm: "flex" }}
               alignItems="center"
-              p={{ base: 4, lg: 8 }}
+              p={{ base: 2, lg: 8 }}
             >
               <Box w={{ base: "100%", sm: "100%", xl: "40%" }}>
                 <Box
-                  borderRight={{ base: "1px" }}
+                  borderRight={{ base: "0px", md: "1px" }}
                   borderColor="#494949"
                   data-aos="fade-up"
                   // border="1px"
@@ -216,14 +216,18 @@ const Testimonials = () => {
           {list.map((item, i) => (
             <Box
               key={i}
-              ml={i % 2 ? "8" : 0}
+              ml={{ base: 0, sm: i % 2 ? "8" : 0 }}
               mb="10"
               bg={i === 0 ? "" : "#121839"}
-              p="4"
+              p={{ base: 3, sm: 4 }}
               borderRadius={14}
               data-aos="fade-up"
             >
-              <Stack direction={"row"} spacing={4} align={"center"}>
+              <Stack
+                direction={{ base: "column", sm: "row" }}
+                spacing={4}
+                align={"center"}
+              >
                 <Avatar size="xl" src={item.img} alt={"Author"} />
                 <Stack direction={"column"} spacing={0} fontSize={"sm"}>
                   <Box

@@ -119,14 +119,26 @@ export default function Work() {
         <Box
           py="4"
           background={svgBackground}
-          backgroundSize="cover"
+          backgroundSize={{ base: "auto", md: "cover" }}
           backgroundRepeat="no-repeat"
         >
-          <Wrap px="14" mt="4" ref={ref} spacing="40px" justify="center">
+          <Wrap
+            px={{ base: 2, md: 6, lg: 4, xl: 14 }}
+            mt="4"
+            ref={ref}
+            spacing="40px"
+            justify="center"
+          >
             {cards.map((item, i) => (
               <WrapItem
                 key={i}
-                width={{ base: "100%", md: "40%", lg: "30%" }}
+                width={{
+                  base: "100%",
+                  sm: "80%",
+                  md: "40%",
+                  lg: "40%",
+                  xl: "30%",
+                }}
 
                 // {...cardVariant(i * 0.4, inView)}
               >

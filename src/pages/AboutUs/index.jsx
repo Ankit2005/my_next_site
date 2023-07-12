@@ -150,7 +150,7 @@ export default function AboutUs() {
           <Text
             textAlign="center"
             color="white"
-            fontSize={{ base: "2xl", md: "5xl" }}
+            fontSize={{ base: "1xl", sm: "2xl", md: "5xl" }}
             fontWeight="bold"
             w={{ base: "xl", md: "2xl" }}
             data-aos="fade-up"

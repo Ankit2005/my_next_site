@@ -14,6 +14,7 @@ import {
   IconProps,
   useColorModeValue,
   Divider,
+  Avatar,
 } from "@chakra-ui/react";
 import AOS from "aos";
 
@@ -28,19 +29,52 @@ const list = [
     title: "Work Execution",
     desc: "consectetur amet dolor sit comeneer ilremsilom dolce issilm acalrm ",
     // image: "https://source.unsplash.com/random/?Cryptocurrency&",
-    img: "/img/service_page_screen.svg",
+    img: "/img/service_page_sec.svg",
   },
   {
-    title: "Marketing Plan",
-    desc: "consectetur amet dolor sit comeneer ilremsilom dolce issilm acalrm",
+    title: "Growth & Scale",
+    desc: "consectetur amet dolor sit comeneer ilremsilom dolce issilm acalrm ",
     // image: "https://source.unsplash.com/random/?Cryptocurrency&",
-    img: "/img/service_page_screen.svg",
+    img: "/img/service_page_third.svg",
+  },
+];
+
+const arr = [
+  {
+    tag_line: "iFornelli",
+    title: `Learn to cook like a pro
+    with MarsterChef Italia
+    winner Melvin Bonello`,
+    title_two: `“This is pretty amazing. It looks great. Thank you
+    everyone for creating such excellent interface”`,
+    name: "Arturo Dell'Eva",
+    desgination: "Founder",
+    bgGradient: "linear(to-r, #E89B35,  #FFCF65)",
+    img: "/img/mobile.svg",
   },
   {
-    title: "Marketing Plan",
-    desc: "consectetur amet dolor sit comeneer ilremsilom dolce issilm acalrm",
-    // image: "https://source.unsplash.com/random/?Cryptocurrency&",
-    img: "/img/service_page_screen.svg",
+    tag_line: "Shopnowtofund",
+    title: `Ecommerce + Crowd
+    Funding Campaigns for
+    a Cause`,
+    title_two: `“"It's not just like any other online marketplace you
+    already use, and IndiaNIC made it happen for us"”`,
+    name: "Shehan & Shenali Rajaratnam",
+    desgination: "Founder",
+    bgGradient: "linear(to-r, #079E50,  #07BF60)",
+    img: "/img/website.svg",
+  },
+  {
+    tag_line: "Minimisecost",
+    title: `Reverse bidding
+    platform for all things
+    electronics`,
+    title_two: `"It’s the skill and expertise of IndiaNIC that truly
+    shines through this very complicated project"`,
+    name: "Praveen Sharma",
+    desgination: "Founder",
+    bgGradient: "linear(to-r, #44A7C0,  #308CA5 )",
+    img: "/img/website_two.svg",
   },
 ];
 
@@ -125,32 +159,7 @@ export default function AboutUs() {
           </Text>
         </Box>
 
-        <Box
-          w={{ base: "100%", lg: "70%" }}
-          mx="auto"
-          mt="20"
-          // border="1px"
-          // borderColor="white"
-          p="2"
-        >
-          {/* Number line code start */}
-
-          {/* <Divider
-            orientation="horizontal"
-            borderStyle="dotted"
-            zIndex={1}
-            borderWidth="2px"
-            borderColor="tomato"
-            width="0"
-            height={{ base: "65vh" }}
-            position="absolute"
-            //  / top={"50px"}
-            bottom={3}
-            left="48%"
-          /> */}
-
-          {/* Number line code end */}
-
+        <Box w={{ base: "100%", lg: "70%" }} mx="auto" mt="20" p="2">
           {/* ----------- 1 ----------- */}
           {list.map((item, i) => (
             <Stack
@@ -158,7 +167,7 @@ export default function AboutUs() {
               direction={{
                 base: "column",
                 md: "row",
-                lg: i % 2 !== 0 ? "row" : "row-reverse",
+                lg: i % 2 === 0 ? "row" : "row-reverse",
               }}
               align="center"
               justify="space-between"
@@ -203,6 +212,128 @@ export default function AboutUs() {
             </Stack>
           ))}
         </Box>
+      </Box>
+      <Box mx={{ base: 2, md: 8 }}>
+        {arr.map((item, ind) => (
+          <Box
+            my="14"
+            px={{ base: 4, sm: 8, lg: 14 }}
+            py={{ base: 4, sm: 4, lg: 0, xl: 0 }}
+            key={ind}
+            bgGradient={item.bgGradient}
+            borderRadius="md"
+          >
+            <Box
+              display={{ base: "column", md: "flex" }}
+              //  alignItems="center"
+              justifyContent={{ base: "space-between" }}
+              gap="4"
+              pos="relative"
+              bgImage={{ base: "", lg: `url(${item.img})` }} // Replace with the path to your image
+              bgSize="auto" // Adjust the background size as needed (cover, contain, etc.)
+              // bgPosition="center" // Adjust the background position as needed (center, top, left, etc.)
+              bgRepeat="no-repeat" // Specify if the background should repeat (no-repeat, repeat, repeat-x, repeat-y)
+              bgPos={{ base: "bottom right" }}
+            >
+              <Box w={{ base: "100%", lg: "50%" }}>
+                <Text
+                  py="8"
+                  letterSpacing={2}
+                  color="white"
+                  fontWeight="bold"
+                  fontSize={{ base: "2xl" }}
+                  data-aos="fade-up"
+                  data-aos-duration="1500"
+                >
+                  {" "}
+                  {item.tag_line}{" "}
+                </Text>
+
+                <Box my="10">
+                  <Text
+                    color="white"
+                    fontWeight="bold"
+                    fontSize={{
+                      base: "2xl",
+                      sm: "32",
+                      md: "46",
+                      lg: "40",
+                      xl: "48",
+                    }}
+                    fontWeigh="bold"
+                    data-aos="fade-up"
+                    data-aos-duration="1500"
+                  >
+                    {item.title}
+                  </Text>
+                </Box>
+                <Box
+                  bg="#ffffff30"
+                  p="8"
+                  borderRadius="md"
+                  mb="14"
+                  data-aos="fade-up"
+                  data-aos-duration="1500"
+                >
+                  <Stack>
+                    <Text
+                      color="white"
+                      data-aos="fade-up"
+                      data-aos-duration="1500"
+                    >
+                      {item.title_two}
+                    </Text>
+                  </Stack>
+                  <Stack mt={6} direction={"row"} spacing={4} align={"center"}>
+                    <Avatar
+                      src={
+                        "https://avatars0.githubusercontent.com/u/1164541?v=4"
+                      }
+                      alt={"Author"}
+                      data-aos="fade-up"
+                      data-aos-duration="1500"
+                    />
+                    <Stack direction={"column"} spacing={0} fontSize={"sm"}>
+                      <Text
+                        color="white"
+                        fontWeight={600}
+                        data-aos="fade-up"
+                        data-aos-duration="1500"
+                      >
+                        {item.name}
+                      </Text>
+                      <Text
+                        color={"white"}
+                        fontWeight="light"
+                        data-aos="fade-up"
+                        data-aos-duration="1500"
+                      >
+                        {item.desgination}
+                      </Text>
+                    </Stack>
+                  </Stack>
+                </Box>
+              </Box>
+
+              {/* <Box
+                w={{ base: "100%", sm: "50%" }}
+                // pos="relative"
+                height={80}
+                // border="1px"
+                // borderColor="white"
+                // overflow="hidden"
+              >
+                <Image
+                  src={item.img}
+                  boxSize="lg"
+                  pos="absolute"
+                  bottom={{ base: -14 }}
+                  // top={{ base: "28%" }}
+                />
+              </Box> */}
+            </Box>
+          </Box>
+        ))}
       </Box>
     </Container>
   );

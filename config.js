@@ -1,7 +1,8 @@
 export const seo = {
   title: "Next js  project",
-  description: "A Next.js project ",
-  canonical: "https://my-next-site-beige.vercel.app/",
+  description: "A Next.js project",
+  //canonical: "https://my-next-site-beige.vercel.app/",
+  canonical: "http://62.72.13.100/",
 };
 
 export const data = [

@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: "http://62.72.13.100/",
+  siteUrl: "https://aukinfotech.com/",
 
   generateRobotsTxt: true,
 };

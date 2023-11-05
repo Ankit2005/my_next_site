@@ -231,7 +231,7 @@ const NewsCard = ({
               borderColor="#282D45"
             >
               <Text data-aos="fade-up" color="#8E9BB7">
-                February 8, 2023
+                {/* February 8, 2023 */}
               </Text>
               <Text
                 data-aos="fade-up"

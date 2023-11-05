@@ -20,6 +20,8 @@ import { MdPhone, MdEmail, MdFax } from "react-icons/md";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { MotionSlideUp } from "src/utils/motion";
+import NextImage from "next/image";
+import { MapView } from "../assets/img";
 
 export default function ContactUs() {
   const [ref, inView] = useInView({
@@ -171,7 +173,8 @@ export default function ContactUs() {
                       <MdPhone color="#fff" size="30px" />
                       <Box>
                         <Text>PHONE</Text>
-                        <Text>+91-988888888</Text>
+                        <Text>+91 88664 88866</Text>
+                        <Text>+91 74050 52001</Text>
                       </Box>
                     </Box>
                   </WrapItem>
@@ -184,8 +187,11 @@ export default function ContactUs() {
                     >
                       <MdFax color="#fff" size="30px" />
                       <Box>
-                        <Text>FAX</Text>
-                        <Text>329-39484</Text>
+                        <Text>Address</Text>
+                        <Text>
+                          66/a trade center near dadasheb jain derasar kalanala
+                          Bhavnagar-364001
+                        </Text>
                       </Box>
                     </Box>
                   </WrapItem>
@@ -210,13 +216,23 @@ export default function ContactUs() {
 
           <GridItem colSpan={{ base: 2, sm: 1 }}>
             <Box
-              ref={mapRef}
+              //ref={mapRef} // uncomment this line then show map view
               width="100%"
-              height={{ base: 300, sm: 400, lg: 400, xl: 690 }}
+              height={{ base: 300, sm: 400, lg: 400, xl: 680 }}
               marginBottom="4"
               borderRadius="2xl"
               data-aos="fade-up"
-            />
+              overflow="hidden"
+            >
+              <NextImage
+                src={MapView}
+                width="600"
+                height="690"
+                alt={"MapView"}
+                placeholder="blur"
+                blurDataURL="L8LE.{~60000_3V@ITx^00t:V?-P"
+              />
+            </Box>
           </GridItem>
         </Grid>
       </Box>

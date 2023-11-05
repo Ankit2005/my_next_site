@@ -102,14 +102,16 @@ const Navbar = () => {
         {/* <ColorModeToggle /> sds */}
       </Box>
 
-      <Button
+      <Box>
+        {/* <Button
         display={{ base: "none", lg: "block" }}
         color="white"
         borderRadius={50}
         bg="primaryBlueBtn"
       >
         Get Demo
-      </Button>
+      </Button> */}
+      </Box>
     </>
   );
 };

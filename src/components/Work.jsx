@@ -1,60 +1,27 @@
-import {
-  Box,
-  Button,
-  Heading,
-  Image,
-  Text,
-  Card,
-  CardBody,
-  CardFooter,
-  Stack,
-  Divider,
-  ButtonGroup,
-  Grid,
-  GridItem,
-  Avatar,
-  Center,
-  Flex,
-  useColorModeValue,
-  Wrap,
-  WrapItem,
-  HStack,
-  Tag,
-} from "@chakra-ui/react";
+import { Box, Button, Text, Center, Wrap, WrapItem } from "@chakra-ui/react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
-// import NextImage from "next/image";
-
-import { AnimatePresence, motion } from "framer-motion";
-import Link from "next/link";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-import {
-  slideIn,
-  textVariant,
-  textSlideVariant,
-  cardVariant,
-} from "src/utils/motion";
 import CardTil from "./CardTil";
 
 export default function Work() {
   const cards = [
     {
-      title: "Virtual Gym",
+      title: "ArrowExpress Tracking",
       img: "https://picsum.photos/500/300/?random",
-      desc: "We designed Virtual Gym to make it more convenient to ensure that users only focus on fitness.",
+      desc: "ArrowExpress offers comprehensive logistics solutions, including secure shipping, timely delivery, and supply chain management, ensuring efficient, cost-effective, and reliable services.",
+    },
+    {
+      title: "Ab Cars",
+      img: "https://picsum.photos/500/300/?random",
+      desc: "Ab Cars provide one-stop destination for quality pre-owned and new cars, offering diverse EMI choices to suit your budget.",
     },
     {
       title: "Virtual Gym",
       img: "https://picsum.photos/500/300/?random",
-      desc: "We designed Virtual Gym to make it more convenient to ensure that users only focus on fitness.",
-    },
-    {
-      title: "Virtual Gym",
-      img: "https://picsum.photos/500/300/?random",
-      desc: "We designed Virtual Gym to make it more convenient to ensure that users only focus on fitness.",
+      desc: "Ab Cars provide one-stop destination for quality pre-owned and new cars, offering diverse EMI choices to suit your budget.",
     },
   ];
 
@@ -71,7 +38,6 @@ export default function Work() {
 
   useEffect(() => {
     const handleScroll = () => {
-      console.log("dddddddddd", window.scrollY);
       if (window.scrollY >= 1730) {
         setX(-100);
       } else {
@@ -93,11 +59,7 @@ export default function Work() {
       justifyContent={{ base: "space-between" }}
       flexDir="column"
       textAlign={{ base: "center", lg: "left" }}
-      // p="4"
-
       className="gd"
-
-      // bgSquare
     >
       <Box>
         <Box
@@ -139,8 +101,6 @@ export default function Work() {
                   lg: "40%",
                   xl: "30%",
                 }}
-
-                // {...cardVariant(i * 0.4, inView)}
               >
                 <Center>
                   <CardTil

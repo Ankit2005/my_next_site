@@ -71,7 +71,13 @@ const CardTil = ({
             >
               {name}
             </Text>
-            <Text data-aos="fade-up" mt="2" color="white" fontSize="17px">
+            <Text
+              data-aos="fade-up"
+              mt="2"
+              height={130}
+              color="white"
+              fontSize="17px"
+            >
               {description}
             </Text>
             <Box data-aos="fade-up" p="4" my="4">
@@ -82,7 +88,7 @@ const CardTil = ({
                 variant="outline"
                 _hover={{}}
               >
-                Sign up now
+                More
               </Button>
             </Box>
           </Box>

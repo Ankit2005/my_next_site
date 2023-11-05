@@ -8,6 +8,7 @@ import Block from "./block.png";
 import Plant from "./plant.png";
 import Tik from "./tik.svg";
 import bgSquare from "./bg-square.svg";
+import MapView from "./map_view.jpeg";
 
 export {
   Man,
@@ -20,4 +21,5 @@ export {
   Plant,
   Tik,
   bgSquare,
+  MapView,
 };

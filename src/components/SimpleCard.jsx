@@ -57,7 +57,7 @@ const SimpleCardTil = ({
           bg: "#5956E9",
           color: "white !important",
         }}
-        data-aos="fade-up-left"
+        data-aos="fade-up"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         borderRadius={16}
@@ -68,6 +68,7 @@ const SimpleCardTil = ({
         <Button
           //  data-aos="fade-up"
           fontWeight="bold"
+          data-aos="fade-up"
           borderRadius={26}
           textColor="white"
           padding={6}
@@ -82,6 +83,7 @@ const SimpleCardTil = ({
             //  data-aos="fade-up"
             color="white"
             fontWeight="bold"
+            data-aos="fade-up"
             fontSize="20px"
           >
             {name}
@@ -91,6 +93,7 @@ const SimpleCardTil = ({
             // data-aos="fade-up"
             color={isHovered ? "white" : "#878787"}
             fontSize="18px"
+            // data-aos="fade-up"
           >
             {description}
           </Text>

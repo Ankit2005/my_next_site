@@ -9,6 +9,7 @@ import Plant from "./plant.png";
 import Tik from "./tik.svg";
 import bgSquare from "./bg-square.svg";
 import MapView from "./map_view.jpeg";
+import AukLogo from "./auk_Logo.png";
 
 export {
   Man,
@@ -22,4 +23,5 @@ export {
   Tik,
   bgSquare,
   MapView,
+  AukLogo
 };

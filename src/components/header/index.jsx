@@ -32,8 +32,9 @@ const Header = () => {
         display="flex"
         justifyContent="space-between"
         alignItems="center"
-        h="4rem"
+        h="5.5rem"
         px={[4, 6, 10, 14, 20]}
+        pt={4}
         maxW={MAX_WIDTH}
         mx="auto"
       >

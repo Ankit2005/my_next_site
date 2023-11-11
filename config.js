@@ -1,7 +1,7 @@
 export const seo = {
-  title: "Next js  project",
-  description: "A Next.js project",
-  //canonical: "https://my-next-site-beige.vercel.app/",
+  title: "Aukinfotech",
+  description:
+    "Aukinfotech is a versatile IT company offering technology solutions and software support. With a dedicated team of professionals, they provide tailored services to keep clients ahead in the rapidly evolving tech landscape. Their commitment to client satisfaction, adaptability to industry trends, and emphasis on personalized service make them a reliable partner in navigating the complexities of the digital realm.",
   canonical: "http://aukinfotech.com/",
 };
 

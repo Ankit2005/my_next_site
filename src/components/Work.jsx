@@ -4,23 +4,26 @@ import "aos/dist/aos.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import { CarRental, Gym } from "src/assets/img";
 import CardTil from "./CardTil";
+// import { CarRental, Gym } from "src/assets/img";
+// import car from "../assets/img/car_rental.jpg";
 
 export default function Work() {
   const cards = [
     {
       title: "ArrowExpress Tracking",
-      img: "https://picsum.photos/500/300/?random",
+      img: "/img/traking.jpg",
       desc: "ArrowExpress offers comprehensive logistics solutions, including secure shipping, timely delivery, and supply chain management, ensuring efficient, cost-effective, and reliable services.",
     },
     {
       title: "Ab Cars",
-      img: "https://picsum.photos/500/300/?random",
+      img: "/img/car_rental.jpg",
       desc: "Ab Cars provide one-stop destination for quality pre-owned and new cars, offering diverse EMI choices to suit your budget.",
     },
     {
       title: "Virtual Gym",
-      img: "https://picsum.photos/500/300/?random",
+      img: "/img/gym.jpg",
       desc: "Ab Cars provide one-stop destination for quality pre-owned and new cars, offering diverse EMI choices to suit your budget.",
     },
   ];

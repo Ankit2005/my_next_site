@@ -174,7 +174,6 @@ export default function ContactUs() {
                       <Box>
                         <Text>PHONE</Text>
                         <Text>+91 88664 88866</Text>
-                        <Text>+91 74050 52001</Text>
                       </Box>
                     </Box>
                   </WrapItem>
@@ -218,8 +217,10 @@ export default function ContactUs() {
             <Box
               //ref={mapRef} // uncomment this line then show map view
               width="100%"
-              height={{ base: 300, sm: 400, lg: 400, xl: 680 }}
+              // width={{ base: "sm", sm: "sm", lg: "lg", xl: "100%" }}
+              //height={{ base: 300, sm: 400, lg: 400, xl: 680 }}
               marginBottom="4"
+              // p="2"
               borderRadius="2xl"
               data-aos="fade-up"
               overflow="hidden"
@@ -227,9 +228,10 @@ export default function ContactUs() {
               <NextImage
                 src={MapView}
                 width="600"
-                height="690"
+                height="590"
                 alt={"MapView"}
                 placeholder="blur"
+                layout="responsive"
                 blurDataURL="L8LE.{~60000_3V@ITx^00t:V?-P"
               />
             </Box>

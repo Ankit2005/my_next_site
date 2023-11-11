@@ -10,6 +10,8 @@ import Tik from "./tik.svg";
 import bgSquare from "./bg-square.svg";
 import MapView from "./map_view.jpeg";
 import AukLogo from "./auk_Logo.png";
+import Gym from "./gym.jpg";
+import CarRental from "./car_rental.jpg";
 
 export {
   Man,
@@ -23,5 +25,7 @@ export {
   Tik,
   bgSquare,
   MapView,
-  AukLogo
+  AukLogo,
+  Gym,
+  CarRental,
 };
